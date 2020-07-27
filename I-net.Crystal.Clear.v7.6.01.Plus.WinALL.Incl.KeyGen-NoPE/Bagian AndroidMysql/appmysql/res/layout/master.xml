@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff00ffff"
+    >
+    
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+
+<TextView
+android:text="Silakan Masukkan Data Pengguna"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+<TableRow android:layout_width="fill_parent" android:baselineAligned="true">
+<TextView
+android:text="Username:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+<EditText android:id="@+id/et_un" android:layout_width="match_parent" android:layout_height="wrap_content" android:maxLength="20">
+    <requestFocus></requestFocus>
+</EditText>
+</TableRow>
+
+<TableRow>
+<TextView
+android:text="Password:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_pw" 
+android:layout_width="match_parent"
+android:inputType="textPassword">
+</EditText>
+</TableRow>
+
+
+<TableRow>
+<TextView
+android:text="retype-Password:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_rpw" 
+android:layout_width="match_parent"
+android:inputType="textPassword">
+</EditText>
+</TableRow>
+
+
+
+<TableRow >
+<Button android:text="S I M P A N" 
+android:id="@+id/btn_simpan" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+<Button android:text="K E L U A R" 
+android:id="@+id/btn_keluar" 
+android:onClick="keluar"
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+</TableRow>
+
+<TextView
+android:text=""
+android:id="@+id/error"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+</TableLayout>
+</AbsoluteLayout>

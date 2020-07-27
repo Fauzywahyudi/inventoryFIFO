@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff00ffff"
+    
+    >
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+
+<TextView
+android:text="Silakan Login sebelum memakai aplikasi"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+<TextView
+android:text="Username:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:id="@+id/et_un" 
+android:layout_width="match_parent" 
+android:layout_height="wrap_content">
+</EditText>
+
+<TextView
+android:text="Password:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_pw" 
+android:layout_width="match_parent"
+android:inputType="textPassword">
+</EditText>
+
+<TableRow >
+<Button android:text="Login" 
+android:id="@+id/btn_login" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+<Button android:text="Cancel" 
+android:id="@+id/btn_cancel" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+</TableRow>
+
+
+<TextView android:text="" 
+android:layout_height="wrap_content" 
+android:id="@+id/tv_error" 
+android:textColor="#ff0000ff"
+android:layout_width="wrap_content">
+</TextView>
+
+<TextView android:text="" 
+android:layout_height="wrap_content" 
+android:id="@+id/ljarak1" 
+android:layout_width="wrap_content">
+</TextView>
+
+<TextView android:text="Belum Memiliki Account" 
+android:layout_height="wrap_content" 
+android:id="@+id/ljarak2" 
+android:layout_width="wrap_content"
+android:textColor="#ff0000ff">
+</TextView>
+
+<Button android:text="Buat Account" 
+android:layout_height="wrap_content" 
+android:id="@+id/daftar" 
+android:onClick="tambah_user"
+android:layout_width="wrap_content">
+</Button>
+
+
+
+</TableLayout>
+</LinearLayout>

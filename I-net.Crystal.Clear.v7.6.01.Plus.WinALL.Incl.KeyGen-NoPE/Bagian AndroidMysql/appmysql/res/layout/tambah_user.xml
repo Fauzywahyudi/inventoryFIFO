@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff00ffff"
+    >
+    
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+
+<TextView
+android:text="Silakan Masukkan Data Pengguna"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:textColor="#ff0000ff"
+/>
+
+<TableRow android:baselineAligned="true" android:layout_width="match_parent">
+<TextView
+android:text="Username:"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:id="@+id/et_un" 
+android:maxWidth="140sp"
+android:layout_height="wrap_content" 
+android:layout_width="match_parent"
+android:layout_gravity="center_vertical" >
+</EditText>
+</TableRow>
+
+<TableRow>
+<TextView
+android:text="Password:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+<EditText android:id="@+id/et_pw" 
+android:layout_height="wrap_content" 
+android:layout_width="match_parent"
+android:layout_gravity="center_vertical"
+android:inputType="textPassword">
+</EditText>
+</TableRow>
+
+
+<TableRow>
+<TextView
+android:text="retype-Password:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_rpw" 
+android:layout_width="match_parent"
+android:inputType="textPassword">
+</EditText>
+</TableRow>
+
+
+
+<TableRow>
+<TextView
+android:text="Nama Lengkap:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_nama" 
+android:layout_width="match_parent">
+</EditText>
+</TableRow>
+
+<TableRow>
+<TextView android:text="Jekel:" 
+          android:textColor="#ff0000ff"/>
+          
+<RadioGroup android:id="@+id/jekel">
+<RadioButton android:id="@+id/pria"
+             android:text="Pria"
+/>
+<RadioButton android:id="@+id/perempuan"
+             android:text="Perempuan"
+/>
+</RadioGroup>
+</TableRow>
+
+
+<TableRow>
+<TextView
+android:text="Alamat:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_alamat" 
+android:layout_width="match_parent">
+</EditText>
+</TableRow>
+
+<TableRow>
+<TextView
+android:text="Nomor Tlp:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_notel" 
+android:layout_width="match_parent">
+</EditText>
+</TableRow>
+
+<TableRow>
+<TextView
+android:text="Nomor HP:"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:layout_height="wrap_content" 
+android:id="@+id/et_nohp" 
+android:layout_width="match_parent">
+</EditText>
+</TableRow>
+
+
+<TableRow >
+<Button android:text="S I M P A N" 
+android:id="@+id/btn_simpan" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+<Button android:text="K E L U A R" 
+android:id="@+id/btn_keluar" 
+android:onClick="keluar"
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+</TableRow>
+
+<TextView
+android:text=""
+android:id="@+id/error"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+</TableLayout>
+</ScrollView>

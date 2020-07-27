@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="no-js">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# place: http://ogp.me/ns/place#">
+
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="content-language" content="en" />
+<title>i-net /// software</title>
+
+<!--[if gte IE 9]><!-->
+<script type="text/javascript">/*<![CDATA[*/var NS='';var JSINFO = {"id":"index","namespace":"","relation":{"imageflow":null},"pdfcdemo":{"rootUrl":"https:\/\/pdfc.inetsoftware.de"},"plugins":{"discoursesearch":{"url":"https:\/\/faq.inetsoftware.de","title":"Search results from FAQ"},"edittable":{"default columnwidth":""}},"toc":{"initial_state":1},"plugin_imagemap_mldummy":"\/_media\/wiki\/dokuwiki-128.png","schemes":["http","https","telnet","gopher","wais","ftp","ed2k","irc","ldap"],"move_renameokay":false,"plugin_folded":{"hide":"hide","reveal":"reveal"},"ga":{"trackingId":"UA-469085-1","anonymizeIp":true,"action":"show","trackOutboundLinks":true,"options":[],"pageview":"\/index"}};
+/*!]]>*/</script>
+<!--<![endif]-->
+<meta name="generator" content="DokuWiki"/>
+<meta name="robots" content="index,follow"/>
+<meta name="keywords" content="inet,crystal reports, crystal clear, Report Designer, i net software, java reporting, report, jdbc driver,ticketsystem"/>
+<meta name="description" content="i-net software provides a powerful reporting software, including its very own graphical Designer. Using Java, it can render reports based on templates from different Report Designers."/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:site" content="inetsoftware"/>
+<meta name="twitter:title" content="i-net /// software"/>
+<meta name="twitter:description" content="i-net software provides a powerful reporting software, including its very own graphical Designer. Using Java, it can render reports based on templates from different Report Designers."/>
+<meta name="twitter:creator" content="i-net /// software"/>
+<meta name="twitter:image" content="https://www.inetsoftware.de/_media/teaser-files/startpage/images/website-teaser-final_02.jpg"/>
+<meta name="twitter:image:alt" content=""/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="i-net software"/>
+<meta property="og:url" content="https://www.inetsoftware.de/index"/>
+<meta property="og:title" content="i-net /// software"/>
+<meta property="og:description" content="i-net software provides a powerful reporting software, including its very own graphical Designer. Using Java, it can render reports based on templates from different Report Designers."/>
+<meta property="og:type" content="article"/>
+<meta property="og:image:secure_url" content="https://www.inetsoftware.de/_media/teaser-files/startpage/images/website-teaser-final_02.jpg"/>
+<meta property="article:published_time" content="Feb 20, 2012"/>
+<meta property="article:modified_time" content="Nov 07, 2013"/>
+<meta property="article:author" content="publishing"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/lib/exe/opensearch.php" title="i-net software"/>
+<link rel="start" href="/"/>
+<link rel="stylesheet" type="text/css" href="/lib/exe/css.php?t=inettpl-4-new&amp;tseed=dffc1bc4f777c0fae899651b624073f8"/>
+<link rel="alternate" type="application/rss+xml" title="i-net software News" href="/news-feed"/>
+<!--[if gte IE 9]><!-->
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/lib/exe/js.php?t=inettpl-4-new&amp;tseed=dffc1bc4f777c0fae899651b624073f8&amp;template=inettpl-4-new"></script>
+<!--<![endif]-->
+
+<meta http-equiv="imagetoolbar" content="no" />
+<meta name="verify-v1" content="DPB9aUytZuPnLKknutuih875YJQnMh7k96z5nR43HPo=" />
+<meta name="google-site-verification" content="0pwO2NeCXGd2cU_5jx31r6naZIHuL5CIhhyknjqdkEM" />
+<link rel="shortcut icon" href="/lib/tpl/inettpl-4-new/images/favicon.ico" />
+
+<link rel="alternate" hreflang="x-default" href="https://www.inetsoftware.de/" />
+<link rel="alternate" hreflang="en" href="https://www.inetsoftware.de/" />
+<link rel="alternate" hreflang="de" href="https://www.inetsoftware.de/de/" />
+<link rel="canonical" href="https://www.inetsoftware.de/">
+</head>
+
+<body class="site dokuwiki mode_show tpl_inettpl-4-new   home">
+
+<div id="headerArea">
+<div class="centerWrapper" id="header">
+<div id="header_showcase"><a href="/products/clear-reports" class="media" title="i-net Clear Reports Reporting"><img src="/_media/teaser-files/startpage/images-pyeongchang/website-teaser-final_01.jpg?w=850&amp;h=187&amp;tok=6ffaf4" class="media" title="i-net Clear Reports. A reporting solution at the PyeongChang 2018 Olympics." alt="i-net Clear Reports. A reporting solution at the PyeongChang 2018 Olympics." width="850" height="187" /></a></div>
+
+<div id="navigation-container">
+
+<a href="/index"  name="dokuwiki__top" id="dokuwiki__top" accesskey="h" title="[ALT+SHIFT+H]"><img src="/lib/tpl/inettpl-4-new/images/logo.png" id="header_logo" alt="i-net software" width="145" height="18"/></a><ul id="main_navigation">
+<li><a href="/products" rel="next" title="Products">Products</a>                        <div class="main_navigation_expansion_wrapper">
+                            <div class="main_navigation_expansion">
+                                <ul>
+<li class="level1"><div class="li"> <a href="/products/clear-reports" class="wikilink1" title="i-net Clear Reports Reporting">Reporting Software Solution</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/pdf-content-comparer" class="wikilink1" title="i-net PDFC - Compare the content of PDF files">PDFC - PDF Content Comparer</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/jdbc-driver" class="wikilink1" title="Use i-net JDBC Drivers. Get connected.">Java Database Drivers (JDBC)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/de/products/helpdesk" class="wikilink1" title="i-net HelpDesk - die Service-Management L&#246;sung f&#252;r den Mittelstand.">i-net HelpDesk (deutsch)</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/other-products" class="wikilink1" title="Our Other Products">Our Other Products</a></div>
+</li>
+</ul>
+
+                            </div>
+                        </div></li>
+<li><a href="/download" rel="next" title="Download">Download</a></li>
+<li><a href="/store" rel="next" title="Store">Store</a></li>
+<li><a href="/support" rel="next" title="Support">Support</a></li>
+<li><a href="/company" rel="next" title="Company">Company</a></li>
+<li class="lastOne">&nbsp;</li></ul>
+</div>
+
+<div id="sub_navigation_div">
+<div id="sub_navigation"><ul>
+<li class="level1 intro_item"><div class="li"> <span class="curid"><a href="/index" class="wikilink1" title="i-net /// software">i-net software</a></span></div>
+</li>
+<li class="level1"><div class="li"> <a href="/support/news" class="wikilink1" title="i-net software News">News</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/clear-reports/samples" class="wikilink1" title="Feature Samples - rendered live">Reporting: Samples</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/pdf-content-comparer" class="wikilink1" title="i-net PDFC - Compare the content of PDF files">PDF Content Comparer</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/jdbc-driver" class="wikilink1" title="Use i-net JDBC Drivers. Get connected.">JDBC Drivers</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/de/products/helpdesk" class="wikilink1" title="i-net HelpDesk - die Service-Management L&#246;sung f&#252;r den Mittelstand.">i-net HelpDesk</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://faq.inetsoftware.de/" class="interwiki iw_faq" target="_blank" title="http://faq.inetsoftware.de/" rel="noopener">FAQ &amp; Knowledgebase</a></div>
+</li>
+</ul><ul class="searchfield"><li><form action="/index" accept-charset="utf-8" class="search" id="dw__search" method="get" role="search"><div class="no"><input type="hidden" name="do" value="search" /><input type="text" placeholder="Search" id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" /><button type="submit" title="Search">Search</button></div></form><label for="qsearch__in" onclick="">Search</label></li></ul></div>
+</div>
+
+</div>
+<button id="mobile-navigation"><span>&nbsp;</span></button>
+</div>
+</div>
+
+
+<div id="inetContentArea">
+<script type="text/javascript">/*<![CDATA[*/try { var html = document.getElementsByTagName('html')[0]; html.className = html.className.replace(/no-js/, "js"); document.getElementById("inetContentArea").style.paddingTop = document.getElementById("headerArea").offsetHeight + "px"; } catch(e) {}/*!]]>*/</script>
+<div class="centerWrapper" id="inetContent">
+<div class="dokuwiki">
+
+<div class="page">
+
+
+
+<div class="plugin_include_content plugin_include__private:home-pages:clear-reports-2012" id="plugin_include__private__home-pages__clear-reports-2012">
+
+
+
+<div id="large-teaser">
+
+<a href="/products/clear-reports" class="media" title="i-net Clear Reports Reporting"><img src="/_media/teaser-files/startpage/images/website-teaser-final_02.jpg?w=850&amp;h=363&amp;tok=e3e439" class="mediacenter" title="i-net Clear Reports 2017" alt="i-net Clear Reports 2017" width="850" height="363" /></a>
+
+</div>
+<div class="box col4 column left ">
+<h2 class="box_title"><a id="i-net-clear-reports-2017" name="i-net-clear-reports-2017">i-net Clear Reports 2017</a></h2>
+<div class="box_content">
+<p>
+<a href="/products/clear-reports" class="wikilink1" title="i-net Clear Reports Reporting">i-net Clear Reports 2017</a> is the most recent release of our reporting software solution. We did a complete overhaul of the Remote Interface and Configuration Manager. But there is even more. <a href="/documentation/clear-reports/release-notes/releases" class="wikilink1" title="Release Notes">Check the release notes.</a>
+</p>
+
+<p>
+<a href="/products/clear-reports" class="wikilink1" title="i-net Clear Reports Reporting">Read more.</a>
+</p>
+</div>
+
+</div> <!-- Extras -->
+<div class="box column center col4 ">
+<h2 class="box_title"><a id="looking-for-something-different" name="looking-for-something-different">Looking for something different?</a></h2>
+<div class="box_content">
+<p>
+i-net software is the vendor of a variety of programs build on top of cutting edge Java technology.
+</p>
+<ul>
+<li class="level1"><div class="li"> <a href="/products/pdf-content-comparer" class="wikilink1" title="i-net PDFC - Compare the content of PDF files">i-net PDF Content Comparer</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/other-products/jwebengine" class="wikilink1" title="JWebEngine - a WYSIWYG editor, a viewer in pure Java. For HTML.">JWebEngine, a Java HTML-Renderer</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/other-products/jortho" class="wikilink1" title="JOrtho - a Java spell-checking library">JOrtho - Open Source Spellchecking</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/other-products/doqua" class="wikilink1" title="i-net Doqua - Document Quality Matters">i-net Doqua - Document quality matters</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/jdbc-driver" class="wikilink1" title="Use i-net JDBC Drivers. Get connected.">JDBC Driver</a></div>
+</li>
+</ul>
+</div>
+
+</div> <!-- Extras -->
+<div class="box column right col4 ">
+<h2 class="box_title"><a id="i-net-software-news" name="i-net-software-news">i-net software News</a></h2>
+<div class="box_content">
+
+<table class="pagelist">
+	<tr class="row">
+		
+		<td class="dpage"><a href="/support/news/i-net-pdfc-new-release-4.3" class="wikilink1" title="i-net PDFC - New Release 4.3">i-net PDFC - New Release 4.3</a></td>
+	</tr>
+	<tr class="row1">
+		
+		<td class="dpage"><a href="/support/news/i-net-pdfc-new-release-4.2" class="wikilink1" title="i-net PDFC - New Release 4.2">i-net PDFC - New Release 4.2</a></td>
+	</tr>
+	<tr class="row2">
+		
+		<td class="dpage"><a href="/support/news/i-net-clear-reports-new-release-17.1" class="wikilink1" title="i-net Clear Reports - New Release 17.1">i-net Clear Reports - New Release 17.1</a></td>
+	</tr>
+	<tr class="row3">
+		
+		<td class="dpage"><a href="/support/news/java-9-support" class="wikilink1" title="Java 9 Support">Java 9 Support</a></td>
+	</tr>
+
+</table>
+
+<p>
+<a href="/support/newsletter" class="wikilink1" title="i-net software Newsletter - Stay in touch.">Subscribe to our newsletter</a> and follow us on <a href="http://twitter.com/inetsoftware" class="urlextern" target="_blank" title="http://twitter.com/inetsoftware" rel="nofollow noopener">Twitter</a> or find us on <a href="https://plus.google.com/105362248682502632120" class="urlextern" target="_blank_" title="Find us on Google+" rel="publisher">Google+</a>.
+</p>
+</div>
+
+</div> <!-- Extras -->
+</div>
+
+
+
+</div><div class="clearer">&nbsp;</div>
+<hr class="clearer" />
+<div class="plugin_autotranslation"><ul><li><div class="li"><a href="/index?tns" class="wikilink1 cur" title="English">en</a></div></li><li><div class="li"><a href="/de/index?tns" class="wikilink1" title="Deutsch">de</a></div></li></ul></div> 
+
+</div>
+
+<div id="inetFooter">
+<ul id="inetFooter_navigation">
+    <li><a href="/de/company/agb" >AGB</a><span
+        class="nextItem"></span></li>
+    <li><a href="/de/company/privacy" >Privacy</a><span
+        class="nextItem"></span></li>
+    <li><a href="/company/contact" >Contact</a><span
+        class="nextItem"></span></li>
+    <li><a href="/de/company/impressum" >Impressum</a></li>
+</ul>
+
+
+
+<p>&copy; Copyright 1996 - 2018, i-net software; All Rights Reserved.</p>
+</div>
+</div>
+</div>
+<div id="inetFooterArea">
+<div class="centerWrapper" id="inetFooter-notes">
+    <div class="dokuwiki"><div class="box column col12 center-text ">
+<h2 class="box_title"><a id="you-might-also-want-to-visit" name="you-might-also-want-to-visit">You might also want to visit</a></h2>
+<div class="box_content"><div class="box column left col6 no-border center-text right-align ">
+<h2 class="box_title"></h2>
+<div class="box_content">
+<p>
+i-net software GmbH<br/>
+
+Friedrichstrasse 231<br/>
+
+10969 Berlin - Germany<br/>
+
++49 30 25 29 93 50 <br/>
+
+</p>
+
+<p>
+<a href="/support/e-mail-support-accounts" class="wikilink1" title="E-mail Support Accounts">Contact us by email</a>
+</p>
+</div>
+
+</div> <!-- Extras -->
+<div class="box column right col6 no-border ">
+<h2 class="box_title"></h2>
+<div class="box_content">
+<ul>
+<li class="level1"><div class="li"> <a href="/products/clear-reports" class="wikilink1" title="i-net Clear Reports Reporting">i-net Clear Reports Reporting</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/pdf-content-comparer" class="wikilink1" title="i-net PDFC - Compare the content of PDF files">i-net PDFC - Compare the content of PDF files</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/de/products/helpdesk" class="wikilink1" title="i-net HelpDesk - die Service-Management L&#246;sung f&#252;r den Mittelstand.">i-net HelpDesk</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/products/jdbc-driver" class="wikilink1" title="Use i-net JDBC Drivers. Get connected.">i-net JDBC Drivers</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="/other-products" class="wikilink1" title="Our Other Products">Our Other Products</a></div>
+</li>
+<li class="level1"><div class="li"> <a href="http://faq.inetsoftware.de/" class="interwiki iw_faq" target="_blank" title="http://faq.inetsoftware.de/" rel="noopener">FAQ</a></div>
+</li>
+</ul>
+</div>
+
+</div> <!-- Extras -->
+</div>
+
+</div> <!-- Extras -->
+    </div>
+</div>
+</div>
+
+<div class="no"><img src="/lib/exe/indexer.php?id=index&amp;1525118493" width="2" height="1" alt="" /></div>
+<div class="no mediasize mobile"></div>
+<div class="no mediasize midsize"></div>
+<div class="no mediasize desktop"></div>
+
+</body>
+
+</html>

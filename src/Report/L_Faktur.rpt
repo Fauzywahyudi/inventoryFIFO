@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<inet:Report xmlns:inet="http://www.inetsoftware.de" major_version="8" minor_version="0" major_xml_version="7" minor_xml_version="9" count="3" id="0">
+    <Datasource dll="pklsianok_configuration.dll">
+      <DataSourceConfiguration name="pklsianok">
+        <property name="supportsOrderBy" value="true"/>
+        <property name="prepStmtCacheSize" value="25"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="cacheCallableStmts" value="false"/>
+        <property name="socketTimeout" value="0"/>
+        <property name="validationQuery" value=""/>
+        <property name="useGmtMillisForDatetimes" value="false"/>
+        <property name="locatorFetchBufferSize" value="1048576"/>
+        <property name="useFastIntParsing" value="true"/>
+        <property name="quotesLowerCase" value="false"/>
+        <property name="supportsParenthesesForJoin" value="true"/>
+        <property name="defaultFetchSize" value="0"/>
+        <property name="useCompression" value="false"/>
+        <property name="host" value="localhost"/>
+        <property name="savePassword" value="true"/>
+        <property name="metadataCacheSize" value="50"/>
+        <property name="zeroDateTimeBehavior" value="exception"/>
+        <property name="emptyStringsConvertToZero" value="true"/>
+        <property name="maxRows" value="-1"/>
+        <property name="paranoid" value="false"/>
+        <property name="driverLibrary" value=""/>
+        <property name="connectionCollation" value=""/>
+        <property name="serverTimezone" value=""/>
+        <property name="blobSendChunkSize" value="1048576"/>
+        <property name="dynamicCalendars" value="false"/>
+        <property name="prepStmtCacheSqlLimit" value="256"/>
+        <property name="sessionVariables" value=""/>
+        <property name="useCursorFetch" value="false"/>
+        <property name="clobCharacterEncoding" value=""/>
+        <property name="emulateLocators" value="false"/>
+        <property name="aliasToken" value=""/>
+        <property name="useReadAheadInput" value="true"/>
+        <property name="identifierQuoteString" value=""/>
+        <property name="database" value="dbsianok"/>
+        <property name="noTimezoneConversionForTimeType" value="false"/>
+        <property name="useSSL" value="false"/>
+        <property name="autoDeserialize" value="false"/>
+        <property name="requireSSL" value="false"/>
+        <property name="useTimezone" value="false"/>
+        <property name="connectTimeout" value="0"/>
+        <property name="supportsSQL92" value="true"/>
+        <property name="supportsWhere" value="true"/>
+        <property name="characterEncoding" value=""/>
+        <property name="port" value="3306"/>
+        <property name="url" value="jdbc:mysql://{host}:{port}/{database}"/>
+        <property name="databaseClassName" value=""/>
+        <property name="useUnicode" value="true"/>
+        <property name="password" value="0005FC2A8F1B0701FE667BC006A757CB2905FC4AAF85C20FA66E795C9CCAB67525"/>
+        <property name="user" value="root"/>
+      </DataSourceConfiguration>
+    </Datasource>
+  <Database>
+    <QueryChanges mask="0" count="2">
+      <Attribute name="queryChange" value="null"/>
+      <Attribute name="queryChange" value="null"/>
+    </QueryChanges>
+  </Database>
+  <FormulaFields count="0">
+  </FormulaFields>
+
+  <PromptFields count="0">
+  </PromptFields>
+
+  <SQLFields count="0">
+  </SQLFields>
+
+  <SortFields count="0">
+  </SortFields>
+
+  <ReportProperties>
+    <Attribute name="page width" value="15840"/>
+    <Attribute name="page height" value="24480"/>
+    <Attribute name="page orientation" value="1"/>
+    <Attribute name="page margin left" value="720"/>
+    <Attribute name="page margin right" value="720"/>
+    <Attribute name="page margin top" value="720"/>
+    <Attribute name="page margin bottom" value="720"/>
+    <Attribute name="report title" value="Report2"/>
+    <Attribute name="report last saved" value="14 Dec 2018 14:50:22 GMT"/>
+    <Attribute name="report created" value="14 Dec 2018 14:16:54 GMT"/>
+    <Attribute name="mailing label type 1" value=""/>
+    <Attribute name="mailing label type 2" value=""/>
+    <Attribute name="format with multiple columns" value="false"/>
+    <Attribute name="mailing label width" value="0"/>
+    <Attribute name="mailing label height" value="0"/>
+    <Attribute name="mailing label distance vertical" value="0"/>
+    <Attribute name="mailing label distance horizontal" value="0"/>
+    <Attribute name="across then down" value="false"/>
+    <Attribute name="format groups with multiple columns" value="false"/>
+    <Attribute name="distinct" value="false"/>
+    <Attribute name="ignore filtering" value="false"/>
+    <Attribute name="ignore sorting" value="false"/>
+    <Attribute name="convert date time" value="0"/>
+    <Attribute name="suppress if no rows" value="false"/>
+    <Attribute name="convert null values to default" value="false"/>
+    <Attribute name="hide PageFooter inside ReportHeader" value="false"/>
+    <Attribute name="form print" value="false"/>
+    <Attribute name="printing enabled" value="true"/>
+    <Attribute name="clipboard enabled" value="true"/>
+    <Attribute name="export enabled" value="true"/>
+    <Attribute name="group tree visible" value="true"/>
+  </ReportProperties>
+  <AreaPair type="PageAreaPair" id="0">
+    <Area type="PageHeader" count="1">
+      <Section type="PageHeader" count="3" width="14400" height="2250" id="0">
+        <Element type="Text" count="1" x_position="300" y_position="150" width="1350" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[TANGGAL]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="300" y_position="750" width="1650" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[NAMA CUSTOMER]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="300" y_position="1350" width="1650" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[ALAMAT]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="PageFooter" count="1">
+      <Section type="PageFooter" count="0" width="14400" height="800" id="1">
+      </Section>
+    </Area>
+  </AreaPair>
+
+  <AreaPair type="ReportAreaPair" id="0">
+    <Area type="ReportHeader" count="1">
+      <Section type="ReportHeader" count="2" width="14400" height="2100" id="2">
+        <Element type="Text" count="3" x_position="150" y_position="450" width="4500" height="1200">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Monospaced"/>
+                <Attribute name="font size" value="360"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[TOKO RONI KOMPUTER]]>
+            </Element>
+          </Element>
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Monospaced"/>
+                <Attribute name="font size" value="200"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[JL. UJUNG GURUN 45 A]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Monospaced"/>
+                <Attribute name="font size" value="280"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[]]>
+            </Element>
+          </Element>
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Monospaced"/>
+                <Attribute name="font style" value="1"/>
+              </FontProperties>
+            <![CDATA[082389667197]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="5550" y_position="1200" width="2850" height="600">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font size" value="280"/>
+              </FontProperties>
+            <![CDATA[FAKTUR PEJUALAN ]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="ReportFooter" count="1">
+      <Section type="ReportFooter" count="0" width="14400" height="800" id="3">
+      </Section>
+    </Area>
+  </AreaPair>
+
+  <AreaPair type="DetailArea" id="1">
+    <Area type="Detail" count="1">
+      <Section type="Detail" count="0" width="14400" height="400" id="4">
+      </Section>
+    </Area>
+  </AreaPair>
+
+</inet:Report>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ff00ffff"
+    >
+    
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+>
+
+<TextView
+android:text="Silakan Username Pengguna"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:textColor="#ff0000ff"
+/>
+
+<TableRow android:baselineAligned="true" android:layout_width="match_parent">
+<TextView
+android:text="Username:"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+
+<EditText android:id="@+id/et_un" 
+android:maxWidth="140sp"
+android:layout_height="wrap_content" 
+android:layout_width="match_parent"
+android:layout_gravity="center_vertical" >
+</EditText>
+</TableRow>
+
+
+<TableRow >
+<Button android:text="C A R I" 
+android:id="@+id/btn_cari" 
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+<Button android:text="K E L U A R" 
+android:id="@+id/btn_keluar" 
+android:onClick="keluar"
+android:layout_width="wrap_content" 
+android:layout_height="wrap_content">
+</Button>
+
+</TableRow>
+
+<TextView
+android:text=""
+android:id="@+id/error"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:textColor="#ff0000ff"
+/>
+
+</TableLayout>
+</ScrollView>

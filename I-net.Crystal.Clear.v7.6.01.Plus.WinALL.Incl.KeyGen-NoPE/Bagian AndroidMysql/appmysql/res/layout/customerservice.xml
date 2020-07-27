@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+	
+<Button 
+	android:layout_height="wrap_content" 
+	android:text="Call Center 123" 
+	android:onClick="CallCenter" 
+	android:id="@+id/btnCallCenter" 
+	android:layout_y="260px"
+	android:layout_width="fill_parent">
+</Button>
+
+<Button 
+	android:layout_height="wrap_content" 
+	android:text="Back to Menu" 
+	android:onClick="Back" 
+	android:id="@+id/btnBack" 
+	android:layout_y="310px"
+	android:layout_width="fill_parent">
+</Button>
+</AbsoluteLayout>

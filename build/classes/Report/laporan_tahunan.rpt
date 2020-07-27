@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<inet:Report xmlns:inet="http://www.inetsoftware.de" major_version="8" minor_version="0" major_xml_version="7" minor_xml_version="9" count="3" id="0">
+    <Datasource dll="dba_configuration.dll">
+      <DataSourceConfiguration name="dba">
+        <property name="aliasToken" value=""/>
+        <property name="useCursorFetch" value="false"/>
+        <property name="emulateLocators" value="false"/>
+        <property name="host" value="localhost"/>
+        <property name="noTimezoneConversionForTimeType" value="false"/>
+        <property name="url" value="jdbc:mysql://{host}:{port}/{database}"/>
+        <property name="connectionCollation" value=""/>
+        <property name="prepStmtCacheSize" value="25"/>
+        <property name="databaseClassName" value=""/>
+        <property name="locatorFetchBufferSize" value="1048576"/>
+        <property name="supportsOrderBy" value="true"/>
+        <property name="defaultFetchSize" value="0"/>
+        <property name="supportsSQL92" value="true"/>
+        <property name="maxRows" value="-1"/>
+        <property name="prepStmtCacheSqlLimit" value="256"/>
+        <property name="paranoid" value="false"/>
+        <property name="characterEncoding" value=""/>
+        <property name="metadataCacheSize" value="50"/>
+        <property name="dynamicCalendars" value="false"/>
+        <property name="connectTimeout" value="0"/>
+        <property name="blobSendChunkSize" value="1048576"/>
+        <property name="validationQuery" value=""/>
+        <property name="zeroDateTimeBehavior" value="exception"/>
+        <property name="sessionVariables" value=""/>
+        <property name="useFastIntParsing" value="true"/>
+        <property name="useReadAheadInput" value="true"/>
+        <property name="driverLibrary" value=""/>
+        <property name="useGmtMillisForDatetimes" value="false"/>
+        <property name="useCompression" value="false"/>
+        <property name="clobCharacterEncoding" value=""/>
+        <property name="useUnicode" value="true"/>
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="user" value="root"/>
+        <property name="autoDeserialize" value="false"/>
+        <property name="supportsWhere" value="true"/>
+        <property name="emptyStringsConvertToZero" value="true"/>
+        <property name="password" value="005666414C576F8F91D10B37DAEB7371485666808D6170AF15124AB021F2C102FD"/>
+        <property name="cacheCallableStmts" value="false"/>
+        <property name="identifierQuoteString" value=""/>
+        <property name="port" value="3306"/>
+        <property name="quotesLowerCase" value="false"/>
+        <property name="useTimezone" value="false"/>
+        <property name="socketTimeout" value="0"/>
+        <property name="database" value="dbsianok"/>
+        <property name="requireSSL" value="false"/>
+        <property name="useSSL" value="false"/>
+        <property name="serverTimezone" value=""/>
+        <property name="supportsParenthesesForJoin" value="true"/>
+        <property name="savePassword" value="true"/>
+      </DataSourceConfiguration>
+      <Tablesource alias="penjualan" databaseIdentifier="penjualan">
+        <Column name="no_faktur" type="11" description="no_faktur" />
+        <Column name="tanggal" type="9" description="tanggal" />
+        <Column name="kd_costomer" type="11" description="kd_costomer" />
+        <Column name="nm_costumer" type="11" description="nm_costumer" />
+        <Column name="kd_barang" type="11" description="kd_barang" />
+        <Column name="nm_barang" type="11" description="nm_barang" />
+        <Column name="harga_jual" type="6" description="harga_jual" />
+        <Column name="stock" type="6" description="stock" />
+        <Column name="jumlah" type="6" description="jumlah" />
+        <Column name="totalharga" type="6" description="totalharga" />
+        <Column name="bayar" type="6" description="bayar" />
+        <Column name="sisa" type="6" description="sisa" />
+        <Column name="stock_akhir" type="6" description="stock_akhir" />
+      </Tablesource>
+    </Datasource>
+  <Database>
+    <QueryChanges mask="0" count="2">
+      <Attribute name="queryChange" value="null"/>
+      <Attribute name="queryChange" value="null"/>
+    </QueryChanges>
+  </Database>
+  <FormulaFields count="0">
+  </FormulaFields>
+
+  <PromptFields count="1">
+    <Field type="PromptVarField" valueType="6">
+      <Attribute name="name" value="tahun"/>
+      <Attribute name="allow_multiple_values" value="false"/>
+      <Attribute name="discrete_or_range" value="0"/>
+      <Attribute name="allow editing" value="true"/>
+      <Attribute name="description_only" value="false"/>
+      <Attribute name="edit mask" value=""/>
+      <Attribute name="prompt_text" value=""/>
+      <Attribute name="use_range" value="false"/>
+    </Field>
+  </PromptFields>
+
+  <SQLFields count="0">
+  </SQLFields>
+
+  <SummaryFields count="1">
+    <Field type="SummaryField" valueType="6">
+      <Attribute name="name" value="subtotal"/>
+      <Reference name="id" type="DatabaseField" refname="penjualan.totalharga"/>
+      <Attribute name="operation" value="0"/>
+      <Attribute name="summary_nth" value="0"/>
+      <Attribute name="summary_type" value="1"/>
+      <Attribute name="chartFieldSelect" value="2"/>
+      <Attribute name="group number type" value="0"/>
+      <Attribute name="show as percent value" value="false"/>
+      <Attribute name="execute on db" value="false"/>
+    </Field>
+  </SummaryFields>
+
+  <SortFields count="0">
+  </SortFields>
+
+  <GroupNameFields count="0">
+  </GroupNameFields>
+
+  <Field type="FormulaField" id="-1" valueType="8">
+    <Attribute name="name" value="Record_Selection"/>
+    <Attribute name="formula type" value="1"/>
+    <Attribute name="basic syntax" value="false"/>
+    <![CDATA[year ( {penjualan.tanggal} )= {?tahun}]]>
+  </Field>
+  <ReportProperties>
+    <Attribute name="page width" value="12240"/>
+    <Attribute name="page height" value="15840"/>
+    <Attribute name="page orientation" value="1"/>
+    <Attribute name="page margin left" value="720"/>
+    <Attribute name="page margin right" value="720"/>
+    <Attribute name="page margin top" value="720"/>
+    <Attribute name="page margin bottom" value="720"/>
+    <Attribute name="report title" value="Report3"/>
+    <Attribute name="report last saved" value="13 Apr 2017 19:47:22 GMT"/>
+    <Attribute name="report created" value="1 Nov 2016 12:45:16 GMT"/>
+    <Attribute name="mailing label type 1" value=""/>
+    <Attribute name="mailing label type 2" value=""/>
+    <Attribute name="format with multiple columns" value="false"/>
+    <Attribute name="mailing label width" value="0"/>
+    <Attribute name="mailing label height" value="0"/>
+    <Attribute name="mailing label distance vertical" value="0"/>
+    <Attribute name="mailing label distance horizontal" value="0"/>
+    <Attribute name="across then down" value="false"/>
+    <Attribute name="format groups with multiple columns" value="false"/>
+    <Attribute name="distinct" value="false"/>
+    <Attribute name="ignore filtering" value="false"/>
+    <Attribute name="ignore sorting" value="false"/>
+    <Attribute name="convert date time" value="0"/>
+    <Attribute name="suppress if no rows" value="false"/>
+    <Attribute name="convert null values to default" value="false"/>
+    <Attribute name="hide PageFooter inside ReportHeader" value="false"/>
+    <Attribute name="form print" value="false"/>
+    <Attribute name="printing enabled" value="true"/>
+    <Attribute name="clipboard enabled" value="true"/>
+    <Attribute name="export enabled" value="true"/>
+    <Attribute name="group tree visible" value="true"/>
+  </ReportProperties>
+  <AreaPair type="PageAreaPair" id="0">
+    <Area type="PageHeader" count="1">
+      <Section type="PageHeader" count="15" width="10800" height="1220" id="0">
+        <Element type="Text" count="1" x_position="900" y_position="900" width="825" height="240">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[no_faktur]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="2850" y_position="900" width="675" height="240">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[tanggal]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="4500" y_position="900" width="945" height="240">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[kd_barang]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="FieldElement" x_position="4950" y_position="300" width="1200" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="3"/>
+          </CommonProperties>
+          <NumberProperties>
+            <Attribute name="use system default format" value="false"/>
+            <Attribute name="n decimal places" value="0"/>
+            <Attribute name="rounding type" value="11"/>
+            <Attribute name="thousand seperators symbol" value=""/>
+            <Attribute name="decimal seperators symbol" value=""/>
+            <Attribute name="currency symbol" value="Rp"/>
+          </NumberProperties>
+          <Reference name="field" type="PromptVarField" refname="?tahun"/>
+        </Element>
+        <Element type="Text" count="1" x_position="6450" y_position="900" width="630" height="240">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[jumlah]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="7800" y_position="900" width="885" height="240">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[totalharga]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="4350" y_position="300" width="1050" height="450">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[tahun:]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Box" x2_position="9300" y2_position="450" x_position="450" y_position="600" width="0" height="0">
+          <BoxProperties>
+            <Attribute name="close border on page break" value="true"/>
+              <LineProperties>
+                <Attribute name="id" value="3"/>
+              </LineProperties>
+          </BoxProperties>
+        </Element>
+        <Element type="Line" x2_position="2550" y2_position="750" x_position="2550" y_position="600" width="0" height="0">
+          <LineProperties>
+            <Attribute name="id" value="4"/>
+          </LineProperties>
+        </Element>
+        <Element type="Line" x2_position="4200" y2_position="750" x_position="4200" y_position="600" width="0" height="0">
+          <LineProperties>
+            <Attribute name="id" value="4"/>
+          </LineProperties>
+        </Element>
+        <Element type="Line" x2_position="6300" y2_position="440" x_position="6300" y_position="600" width="0" height="0">
+          <LineProperties>
+            <Attribute name="id" value="3"/>
+          </LineProperties>
+        </Element>
+        <Element type="Line" x2_position="7500" y2_position="450" x_position="7500" y_position="600" width="0" height="0">
+          <LineProperties>
+            <Attribute name="id" value="3"/>
+          </LineProperties>
+        </Element>
+        <Element type="Line" x2_position="600" y2_position="600" x_position="450" y_position="600" width="0" height="0">
+        </Element>
+        <Element type="Line" x2_position="9300" y2_position="1200" x_position="450" y_position="1200" width="0" height="0">
+        </Element>
+        <Element type="Text" count="1" x_position="3900" y_position="0" width="3000" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[LAPORAN PENJUALAN TAHUNAN]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="PageFooter" count="1">
+      <Section type="PageFooter" count="0" width="10800" height="800" id="1">
+      </Section>
+    </Area>
+  </AreaPair>
+
+  <AreaPair type="ReportAreaPair" id="0">
+    <Area type="ReportHeader" count="1">
+      <Section type="ReportHeader" count="1" width="10800" height="900" id="2">
+        <Element type="Text" count="2" x_position="3750" y_position="150" width="3600" height="600">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[            Toko CMC]]>
+            </Element>
+          </Element>
+          <Element type="Paragraph" count="2">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Times New Roman"/>
+              </FontProperties>
+            <![CDATA[Jalan UjungGurun No. 45 A]]>
+            </Element>
+            <Element type="TextPart">
+              <FontProperties>
+                <Attribute name="font name" value="Times New Roman"/>
+                <Attribute name="font size" value="165"/>
+              </FontProperties>
+            <![CDATA[]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+    <Area type="ReportFooter" count="1">
+      <Section type="ReportFooter" count="5" width="10800" height="2250" id="3">
+        <Element type="FieldElement" x_position="7650" y_position="150" width="1200" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="3"/>
+          </CommonProperties>
+          <NumberProperties>
+            <Attribute name="thousand seperators symbol" value="."/>
+            <Attribute name="decimal seperators symbol" value=","/>
+            <Attribute name="currency symbol" value="Rp"/>
+          </NumberProperties>
+          <Reference name="field" type="SummaryField" refname="#subtotal"/>
+        </Element>
+        <Element type="Text" count="1" x_position="6450" y_position="150" width="900" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[total]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="7500" y_position="750" width="1200" height="450">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[Padang]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="8850" y_position="750" width="1350" height="450">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[Data Date]]>
+            </Element>
+          </Element>
+        </Element>
+        <Element type="Text" count="1" x_position="7950" y_position="1650" width="1800" height="300">
+          <Element type="Paragraph" count="1">
+            <CommonProperties>
+              <Attribute name="horizontal align" value="1"/>
+            </CommonProperties>
+            <Element type="TextPart">
+            <![CDATA[Bagian Penjualan]]>
+            </Element>
+          </Element>
+        </Element>
+      </Section>
+    </Area>
+  </AreaPair>
+
+  <AreaPair type="DetailArea" id="1">
+    <Area type="Detail" count="1">
+      <Section type="Detail" count="6" width="10800" height="770" id="4">
+        <Element type="FieldElement" x_position="900" y_position="150" width="1500" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="penjualan.no_faktur"/>
+        </Element>
+        <Element type="FieldElement" x_position="2850" y_position="0" width="750" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="penjualan.tanggal"/>
+        </Element>
+        <Element type="FieldElement" x_position="4500" y_position="150" width="1500" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="1"/>
+          </CommonProperties>
+          <Reference name="field" type="DatabaseField" refname="penjualan.kd_barang"/>
+        </Element>
+        <Element type="FieldElement" x_position="6450" y_position="150" width="750" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="3"/>
+          </CommonProperties>
+          <NumberProperties>
+            <Attribute name="thousand seperators symbol" value="."/>
+            <Attribute name="decimal seperators symbol" value=","/>
+            <Attribute name="currency symbol" value="Rp"/>
+          </NumberProperties>
+          <Reference name="field" type="DatabaseField" refname="penjualan.jumlah"/>
+        </Element>
+        <Element type="FieldElement" x_position="7950" y_position="150" width="750" height="240">
+          <CommonProperties>
+            <Attribute name="horizontal align" value="3"/>
+          </CommonProperties>
+          <NumberProperties>
+            <Attribute name="thousand seperators symbol" value="."/>
+            <Attribute name="decimal seperators symbol" value=","/>
+            <Attribute name="currency symbol" value="Rp"/>
+          </NumberProperties>
+          <Reference name="field" type="DatabaseField" refname="penjualan.totalharga"/>
+        </Element>
+        <Element type="Line" x2_position="9300" y2_position="750" x_position="450" y_position="750" width="0" height="0">
+        </Element>
+      </Section>
+    </Area>
+  </AreaPair>
+
+</inet:Report>

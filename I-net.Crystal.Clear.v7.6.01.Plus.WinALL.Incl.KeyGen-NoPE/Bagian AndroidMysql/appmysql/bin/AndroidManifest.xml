@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+      package="com.wilis.appmysql"
+      android:versionCode="1"
+      android:versionName="1.0">
+    <uses-sdk android:minSdkVersion="8" />
+
+    <application android:icon="@drawable/icon" android:label="@string/app_name">
+        <activity android:name=".login"
+                  android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".tambah_user"
+                  android:label="Form Pendaftaran User"
+        >
+        </activity>
+        
+        <activity android:name=".menulayanan"
+                  android:label="Menu Utama Aplikasi"
+        >
+        </activity>
+        
+        <activity android:name="PraBayar" android:label="Pra Bayar">
+        </activity>
+         <activity android:name="PascaBayar" android:label="Pasca Bayar">
+        </activity>
+         <activity android:name="CustomerService" android:label="Customer Service">
+        </activity>
+        <activity android:name="Help" android:label="Help">
+        </activity>
+          
+    </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+</manifest>
