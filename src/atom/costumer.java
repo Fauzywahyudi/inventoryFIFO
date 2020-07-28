@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package atom;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
@@ -18,24 +18,27 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nanda
  */
 public class costumer extends javax.swing.JFrame {
- private Connection con;
+
+    private Connection con;
     private ResultSet rs;
     private PreparedStatement ps;
     private Statement st;
     private DefaultTableModel dtm;
     private String sql;
+
     /**
      * Creates new form costumer
      */
     public costumer() {
         initComponents();
-         
-         Koneksi koneksi = new Koneksi();
+
+        Koneksi koneksi = new Koneksi();
         con = koneksi.getKoneksi();
         try {
             st = con.createStatement();
@@ -45,15 +48,16 @@ public class costumer extends javax.swing.JFrame {
         bersih();
         cibuak();
     }
-    
-     private void bersih() {
+
+    private void bersih() {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextArea1.setText("");
-        jTextField1.requestFocus();
-     }
+        txKodePelanggan.setText("");
+        txNamaPelanggan.setText("");
+        txNohp.setText("");
+        txAlamat.setText("");
+        txKodePelanggan.setEditable(true);
+        txKodePelanggan.requestFocus();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -72,12 +76,12 @@ public class costumer extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tabelPelanggan = new javax.swing.JTable();
+        txKodePelanggan = new javax.swing.JTextField();
+        txNamaPelanggan = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField3 = new javax.swing.JTextField();
+        txAlamat = new javax.swing.JTextArea();
+        txNohp = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -96,7 +100,7 @@ public class costumer extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 69, 1030, -1));
 
         jLabel4.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
-        jLabel4.setText("INPUT DATA COSTUMER");
+        jLabel4.setText("INPUT DATA PELANGGAN");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 470, 40));
 
         jButton1.setBackground(new java.awt.Color(102, 102, 0));
@@ -143,7 +147,7 @@ public class costumer extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 120, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -154,37 +158,42 @@ public class costumer extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        tabelPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelPelangganMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tabelPelanggan);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 620, 210));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txKodePelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txKodePelangganActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 170, 30));
+        jPanel1.add(txKodePelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 170, 30));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txNamaPelanggan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txNamaPelangganActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 170, 30));
+        jPanel1.add(txNamaPelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 170, 30));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txAlamat.setColumns(20);
+        txAlamat.setRows(5);
+        jScrollPane1.setViewportView(txAlamat);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, 60));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 30));
+        jPanel1.add(txNohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 30));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Kode Costumer");
+        jLabel3.setText("Kode Pelanggan");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 130, 20));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText(" Nama Costumer");
+        jLabel2.setText(" Nama Pelanggan");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 170, 140, -1));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -192,8 +201,8 @@ public class costumer extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel5.setText("Telp");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 40, 20));
+        jLabel5.setText("No. HP");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, 20));
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 560));
@@ -204,134 +213,144 @@ public class costumer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try {
-            sql="insert into costumer values('"+jTextField1.getText()
-                                             +"','"+jTextField2.getText()                                                            
-                                              +"','"+jTextArea1.getText()    
-                                              +"','"+jTextField3.getText()  
-                                              +"')";
-            st=con.createStatement();
+        try {
+            sql = "insert into pelanggan values('" + txKodePelanggan.getText()
+                    + "','" + txNamaPelanggan.getText()
+                    + "','" + txAlamat.getText()
+                    + "','" + txNohp.getText()
+                    + "')";
+            st = con.createStatement();
             st.executeUpdate(sql);
-             bersih();
-             cibuak();
-             
+            bersih();
+            cibuak();
+
             JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
-                                                       
-        }catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN"+e);            
-        }                                                  
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN" + e);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-         new Menu().setVisible(true);
-        
+        new Menu().setVisible(true);
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-         try
-    {
-        
-        sql="update costumer set nm_costumer='"+jTextField2.getText()+
-                              "',alamat='"+jTextArea1.getText()+
-                              "',tlp='"+jTextField3.getText()+
-                              "' where kd_costumer='"+jTextField1.getText()+"'";
-                      st=con.createStatement();
-                      st.execute(sql);
-                      JOptionPane.showMessageDialog(null,"Data Berhasil Di EDIT"+sql);
-                      bersih();
-                      cibuak();
-                
-    }catch(Exception e){
-        JOptionPane.showMessageDialog(null,e.getMessage());
-    }
+        try {
+            if (txKodePelanggan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "update pelanggan set nm_pel='" + txNamaPelanggan.getText()
+                        + "',alamat='" + txAlamat.getText()
+                        + "',no_hp='" + txNohp.getText()
+                        + "' where kd_pel='" + txKodePelanggan.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di EDIT");
+                bersih();
+                cibuak();
+            }
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txKodePelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodePelangganActionPerformed
         // TODO add your handling code here:
-        try{
-        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         con = DriverManager.getConnection("jdbc:odbc:pklpelet","","");
-         st = con.createStatement();
-        String sql = "select * from costumer where kd_costumer like '"+jTextField1.getText()+"'";
-        ResultSet rs = st.executeQuery(sql);
-        if(rs.next()){
-            jTextField1.setText(rs.getString(1));
-            jTextField2.setText(rs.getString(2));
-            jTextArea1.setText(rs.getString(3));
-            jTextField3.setText(rs.getString(4));
+        try {
+            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
+            st = con.createStatement();
+            String sql = "select * from costumer where kd_costumer like '" + txKodePelanggan.getText() + "'";
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                txKodePelanggan.setText(rs.getString(1));
+                txNamaPelanggan.setText(rs.getString(2));
+                txAlamat.setText(rs.getString(3));
+                txNohp.setText(rs.getString(4));
+            } else {
+                JOptionPane.showMessageDialog(null, "Tidak ada data");
+
+            }
+            st.close();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
         }
-        else{          
-            JOptionPane.showMessageDialog(null,"Tidak ada data");
-           
-        }
-        st.close();
-        con.close();
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null,"Error"+e.getMessage()); 
-       }
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txKodePelangganActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         try {
-           
-            sql="DELETE from costumer where kd_costumer='"+jTextField1.getText()+"'";
-            st=con.createStatement();
-            st.execute(sql);
-            JOptionPane.showMessageDialog(null,"Data Telah Dihapus!!"+ sql);
-            bersih();
-            cibuak();
+        try {
+            if (txKodePelanggan.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "DELETE from pelanggan where kd_pel='" + txKodePelanggan.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
+                bersih();
+                cibuak();
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNamaPelangganActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txNamaPelangganActionPerformed
 
-    private  void cibuak(){
+    private void tabelPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPelangganMouseClicked
+        txKodePelanggan.setText(dtm.getValueAt(tabelPelanggan.getSelectedRow(), 0) + "");
+        txNamaPelanggan.setText(dtm.getValueAt(tabelPelanggan.getSelectedRow(), 1) + "");
+        txAlamat.setText(dtm.getValueAt(tabelPelanggan.getSelectedRow(), 2) + "");
+        txNohp.setText(dtm.getValueAt(tabelPelanggan.getSelectedRow(), 3) + "");
+        txKodePelanggan.setEditable(false);
+    }//GEN-LAST:event_tabelPelangganMouseClicked
+
+    private void cibuak() {
         try {
-            Object[] rows={"KODE"," NAMA","ALAMAT","NO TLP"};
-            dtm=new DefaultTableModel(null,rows);
-            jTable1.setModel(dtm);
-            jTable1.setBorder(null);
+            Object[] rows = {"KODE", " NAMA", "ALAMAT", "NO HP"};
+            dtm = new DefaultTableModel(null, rows);
+            tabelPelanggan.setModel(dtm);
+            tabelPelanggan.setBorder(null);
             jScrollPane3.setVisible(true);
-            jScrollPane3.setViewportView(jTable1);
-            String kd_costumer="", nm_costumer="",alamat="", tlp="";
-            try{
-                sql="select * from costumer";
-                st=con.createStatement();
-                rs=st.executeQuery(sql);
-                while(rs.next()){
-                    kd_costumer=rs.getString("kd_costumer");
-                    nm_costumer=rs.getString("nm_costumer");
-                    alamat=rs.getString("alamat");
-                    tlp=rs.getString("tlp");
-                    String [] tampil={kd_costumer,nm_costumer,alamat,tlp};
+            jScrollPane3.setViewportView(tabelPelanggan);
+            String kd_costumer = "", nm_costumer = "", alamat = "", tlp = "";
+            try {
+                sql = "select * from pelanggan";
+                st = con.createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    kd_costumer = rs.getString("kd_pel");
+                    nm_costumer = rs.getString("nm_pel");
+                    alamat = rs.getString("alamat");
+                    tlp = rs.getString("no_hp");
+                    String[] tampil = {kd_costumer, nm_costumer, alamat, tlp};
                     dtm.addRow(tampil);
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Query Salah" + e.getMessage());
             }
-         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Query Salah"+e.getMessage());
-        }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        } 
+        }
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-       
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -361,7 +380,6 @@ public class costumer extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -377,10 +395,10 @@ public class costumer extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tabelPelanggan;
+    private javax.swing.JTextArea txAlamat;
+    private javax.swing.JTextField txKodePelanggan;
+    private javax.swing.JTextField txNamaPelanggan;
+    private javax.swing.JTextField txNohp;
     // End of variables declaration//GEN-END:variables
 }

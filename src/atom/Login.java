@@ -4,6 +4,7 @@
  */
 package atom;
 
+import java.awt.event.KeyEvent;
 import java.sql.*;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -40,6 +41,29 @@ public class Login extends javax.swing.JFrame {
 //        throw new UnsupportedOperationException("Not yet implemented");
         jTextField1.setText("");
         jPasswordField1.setText("");
+    }
+    
+    private void login(){
+        try {
+            String sql = "Select * from login where username='" + jTextField1.getText() + "' and password='" + String.valueOf(jPasswordField1.getPassword()) + "'";
+            ResultSet rs = st.executeQuery(sql);
+            if (rs.next()) {
+                String level = rs.getString(4);
+                if(level.equals("admin")){
+                    new Menu().setVisible(true);
+                    this.dispose();
+                }else{
+                     new MenuPimpinan().setVisible(true);
+                    this.dispose();
+                }
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "gagal");
+                bersih();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "salah");
+        }
     }
 
     /**
@@ -89,6 +113,11 @@ public class Login extends javax.swing.JFrame {
                 jPasswordField1ActionPerformed(evt);
             }
         });
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyPressed(evt);
+            }
+        });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 270, 210, 30));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -132,26 +161,7 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
-            String sql = "Select * from login where username='" + jTextField1.getText() + "' and password='" + String.valueOf(jPasswordField1.getPassword()) + "'";
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()) {
-                String level = rs.getString(4);
-                if(level.equals("admin")){
-                    new Menu().setVisible(true);
-                    this.dispose();
-                }else{
-                     new MenuPimpinan().setVisible(true);
-                    this.dispose();
-                }
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "gagal");
-                bersih();
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "salah");
-        }
+        login();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -162,6 +172,12 @@ public class Login extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jPasswordField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyPressed
+        if(evt.getKeyCode()==KeyEvent.VK_ENTER){
+            login();
+        }
+    }//GEN-LAST:event_jPasswordField1KeyPressed
 
     /**
      * @param args the command line arguments
