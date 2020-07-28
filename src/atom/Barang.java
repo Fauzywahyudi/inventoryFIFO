@@ -26,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nanda
  */
-public class barang extends javax.swing.JFrame {
+public class Barang extends javax.swing.JFrame {
 
     private Connection con;
     private ResultSet rs;
@@ -38,7 +38,7 @@ public class barang extends javax.swing.JFrame {
     /**
      * Creates new form barang
      */
-    public barang() {
+    public Barang() {
         initComponents();
 
         Koneksi koneksi = new Koneksi();
@@ -75,7 +75,7 @@ public class barang extends javax.swing.JFrame {
             jScrollPane2.setViewportView(tabelBarang);
             String col1, col2, col3, col4, col5, col6, col7;
             try {
-                sql = "select * from barang";
+                sql = "select * from barang ORDER BY kd_barang ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
@@ -392,7 +392,7 @@ public class barang extends javax.swing.JFrame {
             expired = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 5) + "");
             tglBeli = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 6) + "");
         } catch (ParseException ex) {
-            Logger.getLogger(barang.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Barang.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         txKodeBarang.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0) + "");
@@ -423,20 +423,20 @@ public class barang extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Barang.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new barang().setVisible(true);
+                new Barang().setVisible(true);
             }
         });
     }

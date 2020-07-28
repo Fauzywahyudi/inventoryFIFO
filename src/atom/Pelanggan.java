@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author nanda
  */
-public class costumer extends javax.swing.JFrame {
+public class Pelanggan extends javax.swing.JFrame {
 
     private Connection con;
     private ResultSet rs;
@@ -35,7 +35,7 @@ public class costumer extends javax.swing.JFrame {
     /**
      * Creates new form costumer
      */
-    public costumer() {
+    public Pelanggan() {
         initComponents();
 
         Koneksi koneksi = new Koneksi();
@@ -326,7 +326,7 @@ public class costumer extends javax.swing.JFrame {
             jScrollPane3.setViewportView(tabelPelanggan);
             String kd_costumer = "", nm_costumer = "", alamat = "", tlp = "";
             try {
-                sql = "select * from pelanggan";
+                sql = "select * from pelanggan ORDER BY kd_pel ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
@@ -363,20 +363,20 @@ public class costumer extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(costumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(costumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(costumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(costumer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Pelanggan.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new costumer().setVisible(true);
+                new Pelanggan().setVisible(true);
             }
         });
     }

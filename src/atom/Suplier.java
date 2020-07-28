@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package atom;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.DriverManager;
@@ -18,23 +18,26 @@ import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author nanda
  */
-public class suplier extends javax.swing.JFrame {
-private Connection con;
+public class Suplier extends javax.swing.JFrame {
+
+    private Connection con;
     private ResultSet rs;
     private PreparedStatement ps;
     private Statement st;
     private DefaultTableModel dtm;
     private String sql;
+
     /**
      * Creates new form suplier
      */
-    public suplier() {
+    public Suplier() {
         initComponents();
-          Koneksi koneksi = new Koneksi();
+        Koneksi koneksi = new Koneksi();
         con = koneksi.getKoneksi();
         try {
             st = con.createStatement();
@@ -44,44 +47,44 @@ private Connection con;
         bersih();
         cibuak();
     }
-    
-     private void bersih() {
+
+    private void bersih() {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextArea1.setText("");
-        jTextField1.requestFocus();
-     }
-     private  void cibuak(){
+        txKodeSuplier.setText("");
+        txNamaSuplier.setText("");
+        txNohp.setText("");
+        txAlamat.setText("");
+        txKodeSuplier.requestFocus();
+        txKodeSuplier.setEditable(true);
+    }
+
+    private void cibuak() {
         try {
-            Object[] rows={"KODE"," NAMA","ALAMAT","NO TLP"};
-            dtm=new DefaultTableModel(null,rows);
-            jTable1.setModel(dtm);
-            jTable1.setBorder(null);
+            Object[] rows = {"KODE", " NAMA", "ALAMAT", "NO HP"};
+            dtm = new DefaultTableModel(null, rows);
+            tabelSuplier.setModel(dtm);
+            tabelSuplier.setBorder(null);
             jScrollPane3.setVisible(true);
-            jScrollPane3.setViewportView(jTable1);
-             String kd_suplier="", nm_suplier="",alamat="", telp="";
-            try{
-                sql="select * from suplier";
-                st=con.createStatement();
-                rs=st.executeQuery(sql);
-                while(rs.next()){
-                    kd_suplier=rs.getString("kd_suplier");
-                    nm_suplier=rs.getString("nm_suplier");
-                    alamat=rs.getString("alamat");
-                    telp=rs.getString("telp");
-                    String [] tampil={kd_suplier,nm_suplier,alamat,telp};
+            jScrollPane3.setViewportView(tabelSuplier);
+            String kd_suplier = "", nm_suplier = "", alamat = "", telp = "";
+            try {
+                sql = "select * from suplier ORDER BY kd_sup ASC";
+                st = con.createStatement();
+                rs = st.executeQuery(sql);
+                while (rs.next()) {
+                    kd_suplier = rs.getString("kd_sup");
+                    nm_suplier = rs.getString("nm_sup");
+                    alamat = rs.getString("alamat");
+                    telp = rs.getString("no_hp");
+                    String[] tampil = {kd_suplier, nm_suplier, alamat, telp};
                     dtm.addRow(tampil);
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Query Salah" + e.getMessage());
             }
-         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Query Salah"+e.getMessage());
-        }
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
-        } 
+        }
     }
 
     /**
@@ -101,12 +104,12 @@ private Connection con;
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        tabelSuplier = new javax.swing.JTable();
+        txKodeSuplier = new javax.swing.JTextField();
+        txNamaSuplier = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jTextField3 = new javax.swing.JTextField();
+        txAlamat = new javax.swing.JTextArea();
+        txNohp = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -170,7 +173,7 @@ private Connection con;
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 340, 120, 50));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelSuplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -181,24 +184,29 @@ private Connection con;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(jTable1);
+        tabelSuplier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabelSuplierMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tabelSuplier);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, 620, 90));
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txKodeSuplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txKodeSuplierActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 170, 30));
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 170, 30));
+        jPanel1.add(txKodeSuplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 170, 30));
+        jPanel1.add(txNamaSuplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 170, 30));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txAlamat.setColumns(20);
+        txAlamat.setRows(5);
+        jScrollPane1.setViewportView(txAlamat);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 170, 60));
-        jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 30));
+        jPanel1.add(txNohp, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 170, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Kode Suplier");
@@ -213,8 +221,8 @@ private Connection con;
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 60, -1));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Telp.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 40, -1));
+        jLabel3.setText("No. HP");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, -1));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 255));
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, 40, 2560, 370));
@@ -237,93 +245,107 @@ private Connection con;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            sql="insert into suplier values('"+jTextField1.getText()
-                                             +"','"+jTextField2.getText()                                                            
-                                              +"','"+jTextArea1.getText()    
-                                              +"','"+jTextField3.getText()  
-                                              +"')";
-            st=con.createStatement();
+            sql = "insert into suplier values('" + txKodeSuplier.getText()
+                    + "','" + txNamaSuplier.getText()
+                    + "','" + txAlamat.getText()
+                    + "','" + txNohp.getText()
+                    + "')";
+            st = con.createStatement();
             st.executeUpdate(sql);
-             bersih();
-             cibuak();
-             
+            bersih();
+            cibuak();
+
             JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
-                                                       
-        }catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN"+e);            
-        }                                                  
-    
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN" + e);
+        }
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        try
-    {
-        
-        sql="update suplier set nm_suplier='"+jTextField2.getText()+
-                              "',alamat='"+jTextArea1.getText()+
-                              "',telp='"+jTextField3.getText()+
-                              "' where kd_suplier='"+jTextField1.getText()+"'";
-                      st=con.createStatement();
-                      st.execute(sql);
-                      JOptionPane.showMessageDialog(null,"Data Berhasil Di EDIT"+sql);
-                      bersih();
-                      cibuak();
-                
-    }catch(Exception e){
-        JOptionPane.showMessageDialog(null,e.getMessage());
-    }
+        try {
+            if (txKodeSuplier.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "update suplier set nm_sup='" + txNamaSuplier.getText()
+                        + "',alamat='" + txAlamat.getText()
+                        + "',no_hp='" + txNohp.getText()
+                        + "' where kd_sup='" + txKodeSuplier.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di EDIT");
+                bersih();
+                cibuak();
+            }
+
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txKodeSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeSuplierActionPerformed
         // TODO add your handling code here:
-         try{
-        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-         con = DriverManager.getConnection("jdbc:odbc:pklpelet","","");
-         st = con.createStatement();
-        String sql = "select * from suplier where kd_suplier like '"+jTextField1.getText()+"'";
-        ResultSet rs = st.executeQuery(sql);
-        if(rs.next()){
-            jTextField1.setText(rs.getString(1));
-            jTextField2.setText(rs.getString(2));
-            jTextArea1.setText(rs.getString(3));
-            jTextField3.setText(rs.getString(4));
-        }
-        else{          
-            JOptionPane.showMessageDialog(null,"Tidak ada data");
-           
-        }
-        st.close();
-        con.close();
-       }
-       catch(Exception e){
-           JOptionPane.showMessageDialog(null,"Error"+e.getMessage()); 
-       }
-    }//GEN-LAST:event_jTextField1ActionPerformed
+//        try {
+//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+//            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
+//            st = con.createStatement();
+//            String sql = "select * from suplier where kd_suplier like '" + txKodeSuplier.getText() + "'";
+//            ResultSet rs = st.executeQuery(sql);
+//            if (rs.next()) {
+//                txKodeSuplier.setText(rs.getString(1));
+//                txNamaSuplier.setText(rs.getString(2));
+//                txAlamat.setText(rs.getString(3));
+//                txNohp.setText(rs.getString(4));
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Tidak ada data");
+//
+//            }
+//            st.close();
+//            con.close();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+//        }
+    }//GEN-LAST:event_txKodeSuplierActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-         new Menu().setVisible(true);
-        
+        new Menu().setVisible(true);
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         try {
-            sql="DELETE from suplier where kd_suplier='"+jTextField1.getText()+"'";
-            st=con.createStatement();
-            st.execute(sql);
-            JOptionPane.showMessageDialog(null,"Data Telah Dihapus!!"+ sql);
-            bersih();
-            cibuak();
+            if (txKodeSuplier.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "DELETE from suplier where kd_sup='" + txKodeSuplier.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
+                bersih();
+                cibuak();
+            }
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void tabelSuplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelSuplierMouseClicked
+        // TODO add your handling code here:
+         txKodeSuplier.setText(dtm.getValueAt(tabelSuplier.getSelectedRow(), 0) + "");
+        txNamaSuplier.setText(dtm.getValueAt(tabelSuplier.getSelectedRow(), 1) + "");
+        txAlamat.setText(dtm.getValueAt(tabelSuplier.getSelectedRow(), 2) + "");
+        txNohp.setText(dtm.getValueAt(tabelSuplier.getSelectedRow(), 3) + "");
+        txKodeSuplier.setEditable(false);
+    }//GEN-LAST:event_tabelSuplierMouseClicked
 
     /**
      * @param args the command line arguments
@@ -342,24 +364,23 @@ private Connection con;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Suplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new suplier().setVisible(true);
+                new Suplier().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -375,10 +396,10 @@ private Connection con;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTable tabelSuplier;
+    private javax.swing.JTextArea txAlamat;
+    private javax.swing.JTextField txKodeSuplier;
+    private javax.swing.JTextField txNamaSuplier;
+    private javax.swing.JTextField txNohp;
     // End of variables declaration//GEN-END:variables
 }
