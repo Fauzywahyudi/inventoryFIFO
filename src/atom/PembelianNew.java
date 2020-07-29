@@ -1,31 +1,26 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package atom;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author nanda
+ * @author Fauzy Wahyudi
  */
-public class penjualan extends javax.swing.JFrame {
+public class PembelianNew extends javax.swing.JFrame {
 
     String tgl;
     private Connection con;
@@ -35,10 +30,10 @@ public class penjualan extends javax.swing.JFrame {
     private DefaultTableModel dtm;
     private String sql;
     private Date tgpsn;
-
-    public penjualan() throws SQLException {
+    
+    
+    public PembelianNew() throws SQLException {
         initComponents();
-
         Koneksi koneksi = new Koneksi();
         con = koneksi.getKoneksi();
         try {
@@ -62,7 +57,7 @@ public class penjualan extends javax.swing.JFrame {
         tengok();
         cibuak();
     }
-
+    
     private void faktur() throws SQLException {
         sql = "select no_fak_jual from transaksijual order by no_fak_jual desc LIMIT 1";
         Statement st = con.createStatement();
@@ -150,10 +145,10 @@ public class penjualan extends javax.swing.JFrame {
         try {
             Object[] rows = {"KODE", " NAMA", "ALAMAT", "NO TLP"};
             dtm = new DefaultTableModel(null, rows);
-            tabelPelanggan.setModel(dtm);
-            tabelPelanggan.setBorder(null);
+            tabelSuplier.setModel(dtm);
+            tabelSuplier.setBorder(null);
             jScrollPane3.setVisible(true);
-            jScrollPane3.setViewportView(tabelPelanggan);
+            jScrollPane3.setViewportView(tabelSuplier);
             String kd_costumer = "", nm_costumer = "", alamat = "", tlp = "";
             try {
                 sql = "select * from pelanggan ORDER BY kd_pel ASC";
@@ -265,7 +260,7 @@ public class penjualan extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelTransaksi = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
-        tabelPelanggan = new javax.swing.JTable();
+        tabelSuplier = new javax.swing.JTable();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         txSisaBayar = new javax.swing.JTextField();
@@ -284,7 +279,7 @@ public class penjualan extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("TRANSAKSI PENJUALAN");
+        jLabel1.setText("TRANSAKSI PEMBELIAN");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1280, 30));
 
         jLabel2.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
@@ -293,7 +288,7 @@ public class penjualan extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1280, 40));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel3.setText("Kode Pelanggan");
+        jLabel3.setText("Kode Suplier");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 100, 20));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -301,7 +296,7 @@ public class penjualan extends javax.swing.JFrame {
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 80, 20));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel5.setText("Nama Pelanggan");
+        jLabel5.setText("Nama Suplier");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -490,7 +485,7 @@ public class penjualan extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 510, 1170, 150));
 
-        tabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
+        tabelSuplier.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -501,12 +496,12 @@ public class penjualan extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelPelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+        tabelSuplier.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tabelPelangganMouseClicked(evt);
+                tabelSuplierMouseClicked(evt);
             }
         });
-        jScrollPane3.setViewportView(tabelPelanggan);
+        jScrollPane3.setViewportView(tabelSuplier);
 
         jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 550, 120));
 
@@ -541,7 +536,7 @@ public class penjualan extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 100, 20));
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel17.setText("Tabel Pelanggan");
+        jLabel17.setText("Tabel Suplier");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 100, -1));
 
         jPanel2.setBackground(new java.awt.Color(255, 153, 0));
@@ -564,72 +559,141 @@ public class penjualan extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 730, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txNoFakturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNoFakturActionPerformed
+        // TODO add your handling code here:
+        //         try{
+            //        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            //         con = DriverManager.getConnection("jdbc:odbc:pklpelet","","");
+            //         st = con.createStatement();
+            //        String sql = "select * from penjualan where no_faktur like '"+jTextField1.getText()+"'";
+            //        ResultSet rs = st.executeQuery(sql);
+            //        if(rs.next()){
+                //            jTextField1.setText(rs.getString(1));
+                //            vtgl.setText(rs.getString(2));
+                //            jTextField3.setText(rs.getString(3));
+                //            jTextField4.setText(rs.getString(4));
+                //            jTextField5.setText(rs.getString(5));
+                //            jTextField6.setText(rs.getString(6));
+                //            jTextField7.setText(rs.getString(7));
+                //            jTextField8.setText(rs.getString(8));
+                //            jTextField9.setText(rs.getString(9));
+                //            jTextField10.setText(rs.getString(10));
+                //
+                //            jTextField12.setText(rs.getString(11));
+                //            jTextField13.setText(rs.getString(12));
+                //            jTextField14.setText(rs.getString(13));
+                //
+                //        }
+            //        else{
+                //            JOptionPane.showMessageDialog(null,"Tidak ada data");
+                //
+                //        }
+            //        st.close();
+            //        con.close();
+            //       }
+        //       catch(Exception e){
+            //           JOptionPane.showMessageDialog(null,"Error"+e.getMessage());
+            //       }
+    }//GEN-LAST:event_txNoFakturActionPerformed
+
+    private void txKodePelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodePelangganActionPerformed
+        // TODO add your handling code here:
+//        try {
+//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+//            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
+//            st = con.createStatement();
+//            String sql = "select * from costumer where kd_costumer like '" + txKodePelanggan.getText() + "'";
+//            ResultSet rs = st.executeQuery(sql);
+//            if (rs.next()) {
+//                txKodePelanggan.setText(rs.getString(1));
+//                txNamaPelanggan.setText(rs.getString(2));
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Tidak ada data");
+//
+//            }
+//            st.close();
+//            con.close();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+//        }
+    }//GEN-LAST:event_txKodePelangganActionPerformed
+
+    private void txNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNamaPelangganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txNamaPelangganActionPerformed
+
+    private void txKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeBarangActionPerformed
+        // TODO add your handling code here:
+//        try {
+//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+//            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
+//            st = con.createStatement();
+//            String sql = "select * from barang where kd_barang like '" + txKodeBarang.getText() + "'";
+//            ResultSet rs = st.executeQuery(sql);
+//            if (rs.next()) {
+//                txKodeBarang.setText(rs.getString(1));
+//                txNamaBarang.setText(rs.getString(2));
+//                txHarga.setText(rs.getString(5));
+//                txStock.setText(rs.getString(6));
+//
+//            } else {
+//                JOptionPane.showMessageDialog(null, "Tidak ada data");
+//
+//            }
+//            st.close();
+//            con.close();
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+//        }
+    }//GEN-LAST:event_txKodeBarangActionPerformed
+
     private void txHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txHargaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txHargaActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void txJumlahBeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBeliActionPerformed
         // TODO add your handling code here:
-        if (!txKodePelanggan.getText().equals("") && !txKodePelanggan.getText().equals("")) {
-            int total = Integer.parseInt(txJumlahBayar.getText());
-            int dibayar = Integer.parseInt(txBayar.getText());
-            if (dibayar >= total) {
-                SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
-                String tgl = formater.format(txTglJual.getDate());
-                try {
-                    sql = "insert into transaksijual values('" + txNoFaktur.getText()
-                            + "','" + tgl
-                            + "','" + txKodePelanggan.getText()
-                            + "','" + txKodeBarang.getText()
-                            + "','" + txJumlahBeli.getText()
-                            + "','" + txHarga.getText()
-                            + "','" + txJumlahBayar.getText()
-                            + "','" + txStock.getText()
-                            + "','" + txSisaStock.getText()
-                            + "')";
-                    st = con.createStatement();
-                    st.executeUpdate(sql);
-                    updateStok(txKodeBarang.getText(), txJumlahBeli.getText(), "kurang");
-                    cigap();
-                    tengok();
-                    cibuak();
-                    bersih();
-                    JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
+        // double bayar=Double.parseDouble(jTextField10.getText());
+        //int jmb=Integer.parseInt(jTextField9.getText());
+        //double harga=Double.parseDouble(jTextField7.getText());
+        //int stok=Integer.parseInt(jTextField8.getText());
+        //int sisa=Integer.parseInt(jTextField14.getText());
+        //bayar=jmb*harga;
+        //sisa= stok-jmb;
+        //jTextField10.setText(Double.toString(bayar));
+        //jTextField14.setText(Integer.toString(sisa));
+        Double n1;
+        Double n2;
+        Double n3;
+        Double proses;
+        Double prosess;
+        n1 = Double.valueOf(txJumlahBeli.getText());
+        n2 = Double.valueOf(txStock.getText());
+        n3 = Double.valueOf(txHarga.getText());
 
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN" + e);
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, "Uang Kurang");
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Pilih Barang atau Pelanggan");
-        }
+        proses = n2 - n1;
+        prosess = n3 * n1;
+        txSisaStock.setText("" + proses);
+        txJumlahBayar.setText("" + prosess);
+    }//GEN-LAST:event_txJumlahBeliActionPerformed
 
-    }//GEN-LAST:event_btnSaveActionPerformed
+    private void txJumlahBeliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txJumlahBeliFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txJumlahBeliFocusGained
 
     private void txJumlahBeliKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txJumlahBeliKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_txJumlahBeliKeyPressed
-
-    private void tabelBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelBarangMouseClicked
-        // TODO add your handling code here:
-        txKodeBarang.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 0).toString());
-        txNamaBarang.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 1).toString());
-        txHarga.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 3).toString());
-        txStock.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 4).toString());
-
-    }//GEN-LAST:event_tabelBarangMouseClicked
 
     private void txJumlahBeliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txJumlahBeliKeyReleased
         // TODO add your handling code here:
@@ -655,8 +719,15 @@ public class penjualan extends javax.swing.JFrame {
             txSisaStock.setText("" + proses);
             txJumlahBayar.setText("" + prosess);
         }
-
     }//GEN-LAST:event_txJumlahBeliKeyReleased
+
+    private void txJumlahBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txJumlahBayarActionPerformed
+
+    private void txBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txBayarActionPerformed
 
     private void txBayarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txBayarKeyReleased
         // TODO add your handling code here:
@@ -668,18 +739,46 @@ public class penjualan extends javax.swing.JFrame {
         nm = Integer.valueOf(txBayar.getText());
         proses = nm - nn;
         txSisaBayar.setText("" + proses);
-
     }//GEN-LAST:event_txBayarKeyReleased
 
-    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-        try {
-            // TODO add your handling code here:
-            bersih();
-        } catch (SQLException ex) {
-            Logger.getLogger(penjualan.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        if (!txKodePelanggan.getText().equals("") && !txKodePelanggan.getText().equals("")) {
+            int total = Integer.parseInt(txJumlahBayar.getText());
+            int dibayar = Integer.parseInt(txBayar.getText());
+            if (dibayar >= total) {
+                SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+                String tgl = formater.format(txTglJual.getDate());
+                try {
+                    sql = "insert into transaksijual values('" + txNoFaktur.getText()
+                    + "','" + tgl
+                    + "','" + txKodePelanggan.getText()
+                    + "','" + txKodeBarang.getText()
+                    + "','" + txJumlahBeli.getText()
+                    + "','" + txHarga.getText()
+                    + "','" + txJumlahBayar.getText()
+                    + "','" + txStock.getText()
+                    + "','" + txSisaStock.getText()
+                    + "')";
+                    st = con.createStatement();
+                    st.executeUpdate(sql);
+                    updateStok(txKodeBarang.getText(), txJumlahBeli.getText(), "kurang");
+                    cigap();
+                    tengok();
+                    cibuak();
+                    bersih();
+                    JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
 
-    }//GEN-LAST:event_btnNewActionPerformed
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, "GAGAL TERSIMPAN" + e);
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Uang Kurang");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Pilih Barang atau Pelanggan");
+        }
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
@@ -696,157 +795,23 @@ public class penjualan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void txNoFakturActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNoFakturActionPerformed
-        // TODO add your handling code here:
-//         try{
-//        Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-//         con = DriverManager.getConnection("jdbc:odbc:pklpelet","","");
-//         st = con.createStatement();
-//        String sql = "select * from penjualan where no_faktur like '"+jTextField1.getText()+"'";
-//        ResultSet rs = st.executeQuery(sql);
-//        if(rs.next()){
-//            jTextField1.setText(rs.getString(1));
-//            vtgl.setText(rs.getString(2));         
-//            jTextField3.setText(rs.getString(3));
-//            jTextField4.setText(rs.getString(4));
-//            jTextField5.setText(rs.getString(5));
-//            jTextField6.setText(rs.getString(6));
-//            jTextField7.setText(rs.getString(7));         
-//            jTextField8.setText(rs.getString(8));
-//            jTextField9.setText(rs.getString(9));
-//            jTextField10.setText(rs.getString(10));
-//            
-//            jTextField12.setText(rs.getString(11));         
-//            jTextField13.setText(rs.getString(12));
-//            jTextField14.setText(rs.getString(13));
-//            
-//        }
-//        else{          
-//            JOptionPane.showMessageDialog(null,"Tidak ada data");
-//           
-//        }
-//        st.close();
-//        con.close();
-//       }
-//       catch(Exception e){
-//           JOptionPane.showMessageDialog(null,"Error"+e.getMessage()); 
-//       }
-    }//GEN-LAST:event_txNoFakturActionPerformed
-
-    private void tabelPelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelPelangganMouseClicked
-        // TODO add your handling code here:
-        txKodePelanggan.setText(tabelPelanggan.getValueAt(tabelPelanggan.getSelectedRow(), 0).toString());
-        txNamaPelanggan.setText(tabelPelanggan.getValueAt(tabelPelanggan.getSelectedRow(), 1).toString());
-    }//GEN-LAST:event_tabelPelangganMouseClicked
-
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         // TODO add your handling code here:
         this.dispose();
         new Menu().setVisible(true);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void txKodePelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodePelangganActionPerformed
+    private void tabelBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelBarangMouseClicked
         // TODO add your handling code here:
-        try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
-            st = con.createStatement();
-            String sql = "select * from costumer where kd_costumer like '" + txKodePelanggan.getText() + "'";
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()) {
-                txKodePelanggan.setText(rs.getString(1));
-                txNamaPelanggan.setText(rs.getString(2));
-            } else {
-                JOptionPane.showMessageDialog(null, "Tidak ada data");
-
-            }
-            st.close();
-            con.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
-        }
-    }//GEN-LAST:event_txKodePelangganActionPerformed
-
-    private void txNamaPelangganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txNamaPelangganActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txNamaPelangganActionPerformed
-
-    private void txKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeBarangActionPerformed
-        // TODO add your handling code here:
-        try {
-            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
-            st = con.createStatement();
-            String sql = "select * from barang where kd_barang like '" + txKodeBarang.getText() + "'";
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()) {
-                txKodeBarang.setText(rs.getString(1));
-                txNamaBarang.setText(rs.getString(2));
-                txHarga.setText(rs.getString(5));
-                txStock.setText(rs.getString(6));
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Tidak ada data");
-
-            }
-            st.close();
-            con.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
-        }
-    }//GEN-LAST:event_txKodeBarangActionPerformed
-
-    private void txJumlahBeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBeliActionPerformed
-        // TODO add your handling code here:
-        // double bayar=Double.parseDouble(jTextField10.getText());
-        //int jmb=Integer.parseInt(jTextField9.getText());
-        //double harga=Double.parseDouble(jTextField7.getText());
-        //int stok=Integer.parseInt(jTextField8.getText());
-        //int sisa=Integer.parseInt(jTextField14.getText());
-        //bayar=jmb*harga;
-        //sisa= stok-jmb;
-        //jTextField10.setText(Double.toString(bayar));
-        //jTextField14.setText(Integer.toString(sisa));
-        Double n1;
-        Double n2;
-        Double n3;
-        Double proses;
-        Double prosess;
-        n1 = Double.valueOf(txJumlahBeli.getText());
-        n2 = Double.valueOf(txStock.getText());
-        n3 = Double.valueOf(txHarga.getText());
-
-
-        proses = n2 - n1;
-        prosess = n3 * n1;
-        txSisaStock.setText("" + proses);
-        txJumlahBayar.setText("" + prosess);
-
-    }//GEN-LAST:event_txJumlahBeliActionPerformed
-
-    private void txJumlahBeliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txJumlahBeliFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txJumlahBeliFocusGained
+        txKodeBarang.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 0).toString());
+        txNamaBarang.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 1).toString());
+        txHarga.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 3).toString());
+        txStock.setText(tabelBarang.getValueAt(tabelBarang.getSelectedRow(), 4).toString());
+    }//GEN-LAST:event_tabelBarangMouseClicked
 
     private void tabelBarangKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelBarangKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_tabelBarangKeyPressed
-
-    private void txSisaBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSisaBayarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txSisaBayarActionPerformed
-
-    private void txBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txBayarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txBayarActionPerformed
-
-    private void txJumlahBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBayarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txJumlahBayarActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
 
     private void tabelTransaksiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelTransaksiMouseClicked
         try {
@@ -857,6 +822,29 @@ public class penjualan extends javax.swing.JFrame {
         }
         txNoFaktur.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_tabelTransaksiMouseClicked
+
+    private void tabelSuplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelSuplierMouseClicked
+        // TODO add your handling code here:
+        txKodePelanggan.setText(tabelSuplier.getValueAt(tabelSuplier.getSelectedRow(), 0).toString());
+        txNamaPelanggan.setText(tabelSuplier.getValueAt(tabelSuplier.getSelectedRow(), 1).toString());
+    }//GEN-LAST:event_tabelSuplierMouseClicked
+
+    private void txSisaBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txSisaBayarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txSisaBayarActionPerformed
+
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        try {
+            // TODO add your handling code here:
+            bersih();
+        } catch (SQLException ex) {
+            Logger.getLogger(penjualan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNewActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -872,22 +860,16 @@ public class penjualan extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-
-
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(penjualan.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PembelianNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(penjualan.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PembelianNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(penjualan.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PembelianNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(penjualan.class
-                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PembelianNew.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -895,9 +877,9 @@ public class penjualan extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    new penjualan().setVisible(true);
+                    new PembelianNew().setVisible(true);
                 } catch (SQLException ex) {
-                    Logger.getLogger(penjualan.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(PembelianNew.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         });
@@ -931,7 +913,7 @@ public class penjualan extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tabelBarang;
-    private javax.swing.JTable tabelPelanggan;
+    private javax.swing.JTable tabelSuplier;
     private javax.swing.JTable tabelTransaksi;
     private javax.swing.JTextField txBayar;
     private javax.swing.JTextField txHarga;
