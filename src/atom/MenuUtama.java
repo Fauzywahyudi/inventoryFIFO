@@ -78,7 +78,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("Angsana New", 1, 48)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("TOKO RONI KOMPUTER");
+        jLabel5.setText("TOKO DAYA FAMILY");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 220, 1520, -1));
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-380, -420, -1, -1));
 

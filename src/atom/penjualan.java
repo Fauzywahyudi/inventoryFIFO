@@ -58,9 +58,9 @@ public class penjualan extends javax.swing.JFrame {
         bersih();
         faktur();
         tgl();
-        cigap();
-        tengok();
-        cibuak();
+        showBarang();
+        showPelanggan();
+        showTransaksi();
     }
 
     private void faktur() throws SQLException {
@@ -116,7 +116,7 @@ public class penjualan extends javax.swing.JFrame {
 
     }
 
-    private void cigap() {
+    private void showBarang() {
         try {
             Object[] rows = {"KODE BARANG", " NAMA BARANG", "SATUAN", "HARGA JUAL", "STOK"};
             dtm = new DefaultTableModel(null, rows);
@@ -133,7 +133,7 @@ public class penjualan extends javax.swing.JFrame {
                     kd_barang = rs.getString("kd_barang");
                     nm_barang = rs.getString("nm_barang");
                     satuan = rs.getString("satuan");
-                    harga_jual = rs.getString("harga");
+                    harga_jual = rs.getString("harga_jual");
                     stock = rs.getString("stock");
                     String[] tampil = {kd_barang, nm_barang, satuan, harga_jual, stock};
                     dtm.addRow(tampil);
@@ -146,7 +146,7 @@ public class penjualan extends javax.swing.JFrame {
         }
     }
 
-    private void tengok() {
+    private void showPelanggan() {
         try {
             Object[] rows = {"KODE", " NAMA", "ALAMAT", "NO TLP"};
             dtm = new DefaultTableModel(null, rows);
@@ -187,7 +187,7 @@ public class penjualan extends javax.swing.JFrame {
         }
     }
 
-    private void cibuak() {
+    private void showTransaksi() {
         try {
             Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "HARGA", "STOCK", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
             dtm = new DefaultTableModel(null, rows);
@@ -197,7 +197,7 @@ public class penjualan extends javax.swing.JFrame {
             jScrollPane1.setViewportView(tabelTransaksi);
             String no_faktur = "", tanggal = "", kd_costomer = "", nm_costumer = "", kd_barang = "", nm_barang = "", harga_jual = "", stock = "", jumlah = "", totalharga = "", bayar = "", sisa = "", stock_akhir = "";
             try {
-                sql = "select * from transaksijual INNER JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel INNER JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY tgl_jual DESC";
+                sql = "select * from transaksijual INNER JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel INNER JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY transaksijual.tgl_jual DESC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
@@ -209,7 +209,7 @@ public class penjualan extends javax.swing.JFrame {
                     nm_barang = rs.getString("nm_barang");
 
                     stock = rs.getString("stok");
-                    harga_jual = rs.getString("harga");
+                    harga_jual = rs.getString("harga_jual");
                     jumlah = rs.getString("jumlah");
                     totalharga = rs.getString("total");
                     stock_akhir = rs.getString("stok_sisa");
@@ -600,9 +600,9 @@ public class penjualan extends javax.swing.JFrame {
                     st = con.createStatement();
                     st.executeUpdate(sql);
                     updateStok(txKodeBarang.getText(), txJumlahBeli.getText(), "kurang");
-                    cigap();
-                    tengok();
-                    cibuak();
+                    showBarang();
+                    showPelanggan();
+                    showTransaksi();
                     bersih();
                     JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
 
@@ -690,7 +690,7 @@ public class penjualan extends javax.swing.JFrame {
             st.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
             bersih();
-            cibuak();
+            showTransaksi();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }

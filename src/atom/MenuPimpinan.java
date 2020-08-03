@@ -10,6 +10,9 @@ import com.inet.viewer.SwingReportViewer;
 import com.inet.viewer.URLRenderData;
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 
@@ -90,7 +93,7 @@ public class MenuPimpinan extends javax.swing.JFrame {
         jMenu7.add(jMenuItem5);
 
         jMenuItem6.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
-        jMenuItem6.setText("Costomer");
+        jMenuItem6.setText("Pelanggan");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
@@ -116,6 +119,7 @@ public class MenuPimpinan extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem8);
 
+        jMenuItem10.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
         jMenuItem10.setText("Penjualan Pertahun");
         jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -124,6 +128,7 @@ public class MenuPimpinan extends javax.swing.JFrame {
         });
         jMenu7.add(jMenuItem10);
 
+        jMenuItem11.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
         jMenuItem11.setText("Penjualan bulanan");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,26 +184,42 @@ public class MenuPimpinan extends javax.swing.JFrame {
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         // TODO add your handling code here:
-         new Laporan_Suplier().setVisible(true);
-        this.dispose();
+        try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
         // TODO add your handling code here:
-         new Laporan_Penjualan().setVisible(true);
-        this.dispose();
+       try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-         new Laporan_Pembelian().setVisible(true);
-        this.dispose();
+       try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
-         new Laporan_Costomer().setVisible(true);
-        this.dispose();
+        try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
@@ -242,15 +263,23 @@ public class MenuPimpinan extends javax.swing.JFrame {
 
     private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
         // TODO add your handling code here:
-         new laporan_tahunan().setVisible(true);
-        this.dispose();
+        try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
     private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
         // TODO add your handling code here:
-        new laporan_bulanan().setVisible(true);
-        this.dispose();
+       try {
+            String url = "http://localhost/qustioner/getLaporan.php";
+            java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+        } catch (IOException ex) {
+            Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**

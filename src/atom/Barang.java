@@ -57,7 +57,8 @@ public class Barang extends javax.swing.JFrame {
 //        throw new UnsupportedOperationException("Not yet implemented");
         txKodeBarang.setText("");
         txNamaBarang.setText("");
-        txHarga.setText("");
+        txHargaJual.setText("");
+        txHargaBeli.setText("");
         txStock.setText("");
         cbSatuan.setSelectedIndex(0);
         txExpired.setDate(null);
@@ -67,13 +68,13 @@ public class Barang extends javax.swing.JFrame {
 
     private void cibuak() {
         try {
-            Object[] rows = {"KODE BARANG", " NAMA BARANG", "SATUAN", "HARGA", "STOK", "EXPIRED", "TANGGAL BELI"};
+            Object[] rows = {"KODE BARANG", " NAMA BARANG", "SATUAN", "HARGA BELI", "HARGA JUAL", "STOK", "EXPIRED", "TANGGAL BELI"};
             defaultTableModel = new DefaultTableModel(null, rows);
             tabelBarang.setModel(defaultTableModel);
             tabelBarang.setBorder(null);
             jScrollPane2.setVisible(true);
             jScrollPane2.setViewportView(tabelBarang);
-            String col1, col2, col3, col4, col5, col6, col7;
+            String col1, col2, col3, col4, col5, col6, col7,col8;
             try {
                 sql = "select * from barang ORDER BY kd_barang ASC";
                 st = con.createStatement();
@@ -82,11 +83,12 @@ public class Barang extends javax.swing.JFrame {
                     col1 = rs.getString("kd_barang");
                     col2 = rs.getString("nm_barang");
                     col3 = rs.getString("satuan");
-                    col4 = rs.getString("harga");
+                    col8 = rs.getString("harga_beli");
+                    col4 = rs.getString("harga_jual");
                     col5 = rs.getString("stock");
                     col6 = rs.getString("expired");
                     col7 = rs.getString("tgl_beli");
-                    String[] tampil = {col1, col2, col3, col4, col5, col6, col7};
+                    String[] tampil = {col1, col2, col3,col8, col4, col5, col6, col7};
                     defaultTableModel.addRow(tampil);
                 }
             } catch (Exception e) {
@@ -122,7 +124,7 @@ public class Barang extends javax.swing.JFrame {
         txNamaBarang = new javax.swing.JTextField();
         cbSatuan = new javax.swing.JComboBox();
         txStock = new javax.swing.JTextField();
-        txHarga = new javax.swing.JTextField();
+        txHargaJual = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -130,6 +132,9 @@ public class Barang extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txTglBeli = new com.toedter.calendar.JDateChooser();
         txExpired = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
+        txHargaBeli = new javax.swing.JTextField();
+        btnDelete1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -162,13 +167,13 @@ public class Barang extends javax.swing.JFrame {
         btnDelete.setBackground(new java.awt.Color(102, 102, 0));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(51, 51, 51));
-        btnDelete.setText("DELETE");
+        btnDelete.setText("RESET");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
-        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 130, 50));
+        jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 130, 50));
 
         jButton4.setBackground(new java.awt.Color(102, 102, 0));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -214,12 +219,12 @@ public class Barang extends javax.swing.JFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel5.setText("Harga");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 30));
+        jLabel5.setText("Harga Jual");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Tanggal Beli");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 100, 30));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 100, 30));
 
         txKodeBarang.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -236,14 +241,14 @@ public class Barang extends javax.swing.JFrame {
             }
         });
         jPanel2.add(cbSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 160, 30));
-        jPanel2.add(txStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 160, 30));
+        jPanel2.add(txStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 160, 30));
 
-        txHarga.addActionListener(new java.awt.event.ActionListener() {
+        txHargaJual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txHargaActionPerformed(evt);
+                txHargaJualActionPerformed(evt);
             }
         });
-        jPanel2.add(txHarga, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 160, 30));
+        jPanel2.add(txHargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 160, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setLayout(null);
@@ -256,13 +261,35 @@ public class Barang extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setText("Stock");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel10.setText("Expired");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 30));
-        jPanel2.add(txTglBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 160, 30));
-        jPanel2.add(txExpired, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 160, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 80, 30));
+        jPanel2.add(txTglBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 160, 30));
+        jPanel2.add(txExpired, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 160, 30));
+
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel8.setText("Harga Beli");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 30));
+
+        txHargaBeli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txHargaBeliActionPerformed(evt);
+            }
+        });
+        jPanel2.add(txHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 160, 30));
+
+        btnDelete1.setBackground(new java.awt.Color(102, 102, 0));
+        btnDelete1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        btnDelete1.setForeground(new java.awt.Color(51, 51, 51));
+        btnDelete1.setText("DELETE");
+        btnDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnDelete1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 440, 130, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 550));
 
@@ -275,11 +302,12 @@ public class Barang extends javax.swing.JFrame {
         String expired = formater.format(txExpired.getDate());
         String tglBeli = formater.format(txTglBeli.getDate());
         try {
-            sql = "INSERT INTO `barang`(`kd_barang`, `nm_barang`, `satuan`, `harga`, `stock`, `expired`, `tgl_beli`) "
+            sql = "INSERT INTO `barang`(`kd_barang`, `nm_barang`, `satuan`, harga_beli,`harga_jual`, `stock`, `expired`, `tgl_beli`) "
                     + "VALUES ('" + txKodeBarang.getText() + "',"
                     + "'" + txNamaBarang.getText() + "',"
                     + "'" + cbSatuan.getSelectedItem() + "',"
-                    + "'" + txHarga.getText() + "',"
+                    + "'" + txHargaBeli.getText() + "',"
+                    + "'" + txHargaJual.getText() + "',"
                     + "'" + txStock.getText() + "',"
                     + "'" + expired + "',"
                     + "'" + tglBeli + "')";
@@ -303,21 +331,7 @@ public class Barang extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        try {
-            if (txKodeBarang.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
-            } else {
-                sql = "DELETE from barang where kd_barang='" + txKodeBarang.getText() + "'";
-                st = con.createStatement();
-                st.execute(sql);
-                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
-                bersih();
-                cibuak();
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+         bersih();
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
@@ -333,7 +347,8 @@ public class Barang extends javax.swing.JFrame {
                 sql = "UPDATE `barang` SET "
                         + "`nm_barang`='" + txNamaBarang.getText() + "',"
                         + "`satuan`='" + cbSatuan.getSelectedItem() + "',"
-                        + "`harga`='" + txHarga.getText() + "',"
+                        + "`harga_beli`='" + txHargaBeli.getText() + "',"
+                        + "`harga_jual`='" + txHargaJual.getText() + "',"
                         + "`stock`='" + txStock.getText() + "',"
                         + "`expired`='" + expired + "',"
                         + "`tgl_beli`='" + tglBeli + "'"
@@ -362,7 +377,7 @@ public class Barang extends javax.swing.JFrame {
                 txKodeBarang.setText(rs.getString(1));
                 txNamaBarang.setText(rs.getString(2));
                 cbSatuan.setSelectedItem(rs.getString(3));
-                txHarga.setText(rs.getString(4));
+                txHargaJual.setText(rs.getString(4));
                 txStock.setText(rs.getString(5));
             } else {
                 JOptionPane.showMessageDialog(null, "Tidak ada data");
@@ -379,32 +394,43 @@ public class Barang extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbSatuanActionPerformed
 
-    private void txHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txHargaActionPerformed
+    private void txHargaJualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txHargaJualActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txHargaActionPerformed
+    }//GEN-LAST:event_txHargaJualActionPerformed
 
     private void tabelBarangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelBarangMouseClicked
         // TODO add your handling code here:
         SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
         Date expired = new Date();
         Date tglBeli = new Date();
+//        JOptionPane.showMessageDialog(null, defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 5));
         try {
-            expired = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 5) + "");
-            tglBeli = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 6) + "");
+            
+            expired = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 6) + "");
+            tglBeli = new SimpleDateFormat("yyyy-MM-dd").parse(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 7) + "");
         } catch (ParseException ex) {
             Logger.getLogger(Barang.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         txKodeBarang.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0) + "");
         txNamaBarang.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 1) + "");
-        txHarga.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 3) + "");
-        txStock.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 4) + "");
+        txHargaBeli.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 3) + "");
+        txHargaJual.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 4) + "");
+        txStock.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 5) + "");
         txExpired.setDate(expired);
         txTglBeli.setDate(tglBeli);
         cbSatuan.setSelectedItem(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 2) + "");
 
         txKodeBarang.setEditable(false);
     }//GEN-LAST:event_tabelBarangMouseClicked
+
+    private void txHargaBeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txHargaBeliActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txHargaBeliActionPerformed
+
+    private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDelete1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -442,6 +468,7 @@ public class Barang extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDelete1;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnSave;
     private javax.swing.JComboBox cbSatuan;
@@ -454,13 +481,15 @@ public class Barang extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tabelBarang;
     private com.toedter.calendar.JDateChooser txExpired;
-    private javax.swing.JTextField txHarga;
+    private javax.swing.JTextField txHargaBeli;
+    private javax.swing.JTextField txHargaJual;
     private javax.swing.JTextField txKodeBarang;
     private javax.swing.JTextField txNamaBarang;
     private javax.swing.JTextField txStock;

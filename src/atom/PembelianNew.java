@@ -53,17 +53,17 @@ public class PembelianNew extends javax.swing.JFrame {
         bersih();
         faktur();
         tgl();
-        cigap();
-        tengok();
-        cibuak();
+        showBarang();
+        showSuplier();
+        showTransaksi();
     }
     
     private void faktur() throws SQLException {
-        sql = "select no_fak_jual from transaksijual order by no_fak_jual desc LIMIT 1";
+        sql = "select no_fak_beli from transaksibeli order by no_fak_beli desc LIMIT 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         if (rs.next()) {
-            String kd = rs.getString("no_fak_jual");
+            String kd = rs.getString("no_fak_beli");
             int no = Integer.parseInt(kd) + 1;
             String No1 = "";
             if (no < 10) {
@@ -111,9 +111,9 @@ public class PembelianNew extends javax.swing.JFrame {
 
     }
 
-    private void cigap() {
+    private void showBarang() {
         try {
-            Object[] rows = {"KODE BARANG", " NAMA BARANG", "SATUAN", "HARGA JUAL", "STOK"};
+            Object[] rows = {"KODE BARANG", " NAMA BARANG", "SATUAN", "HARGA BELI", "STOK"};
             dtm = new DefaultTableModel(null, rows);
             tabelBarang.setModel(dtm);
             tabelBarang.setBorder(null);
@@ -128,7 +128,7 @@ public class PembelianNew extends javax.swing.JFrame {
                     kd_barang = rs.getString("kd_barang");
                     nm_barang = rs.getString("nm_barang");
                     satuan = rs.getString("satuan");
-                    harga_jual = rs.getString("harga");
+                    harga_jual = rs.getString("harga_beli");
                     stock = rs.getString("stock");
                     String[] tampil = {kd_barang, nm_barang, satuan, harga_jual, stock};
                     dtm.addRow(tampil);
@@ -141,7 +141,7 @@ public class PembelianNew extends javax.swing.JFrame {
         }
     }
 
-    private void tengok() {
+    private void showSuplier() {
         try {
             Object[] rows = {"KODE", " NAMA", "ALAMAT", "NO TLP"};
             dtm = new DefaultTableModel(null, rows);
@@ -151,12 +151,12 @@ public class PembelianNew extends javax.swing.JFrame {
             jScrollPane3.setViewportView(tabelSuplier);
             String kd_costumer = "", nm_costumer = "", alamat = "", tlp = "";
             try {
-                sql = "select * from pelanggan ORDER BY kd_pel ASC";
+                sql = "select * from suplier ORDER BY kd_sup ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    kd_costumer = rs.getString("kd_pel");
-                    nm_costumer = rs.getString("nm_pel");
+                    kd_costumer = rs.getString("kd_sup");
+                    nm_costumer = rs.getString("nm_sup");
                     alamat = rs.getString("alamat");
                     tlp = rs.getString("no_hp");
                     String[] tampil = {kd_costumer, nm_costumer, alamat, tlp};
@@ -182,9 +182,9 @@ public class PembelianNew extends javax.swing.JFrame {
         }
     }
 
-    private void cibuak() {
+    private void showTransaksi() {
         try {
-            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "HARGA", "STOCK", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
+            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "HARGA BELI", "STOCK", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
             dtm = new DefaultTableModel(null, rows);
             tabelTransaksi.setModel(dtm);
             tabelTransaksi.setBorder(null);
@@ -192,19 +192,19 @@ public class PembelianNew extends javax.swing.JFrame {
             jScrollPane1.setViewportView(tabelTransaksi);
             String no_faktur = "", tanggal = "", kd_costomer = "", nm_costumer = "", kd_barang = "", nm_barang = "", harga_jual = "", stock = "", jumlah = "", totalharga = "", bayar = "", sisa = "", stock_akhir = "";
             try {
-                sql = "select * from transaksijual INNER JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel INNER JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY tgl_jual DESC";
+                sql = "select * from transaksibeli INNER JOIN suplier ON transaksibeli.kd_sup=suplier.kd_sup INNER JOIN barang ON transaksibeli.kd_barang=barang.kd_barang ORDER BY transaksibeli.tgl_beli DESC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
-                    no_faktur = rs.getString("no_fak_jual");
-                    tanggal = rs.getString("tgl_jual");
-                    kd_costomer = rs.getString("kd_pel");
-                    nm_costumer = rs.getString("nm_pel");
+                    no_faktur = rs.getString("no_fak_beli");
+                    tanggal = rs.getString("tgl_beli");
+                    kd_costomer = rs.getString("kd_sup");
+                    nm_costumer = rs.getString("nm_sup");
                     kd_barang = rs.getString("kd_barang");
                     nm_barang = rs.getString("nm_barang");
 
                     stock = rs.getString("stok");
-                    harga_jual = rs.getString("harga");
+                    harga_jual = rs.getString("harga_beli");
                     jumlah = rs.getString("jumlah");
                     totalharga = rs.getString("total");
                     stock_akhir = rs.getString("stok_sisa");
@@ -212,6 +212,7 @@ public class PembelianNew extends javax.swing.JFrame {
                     dtm.addRow(tampil);
                 }
             } catch (Exception e) {
+                
                 JOptionPane.showMessageDialog(null, "Query Salah" + e.getMessage());
             }
         } catch (Exception e) {
@@ -337,7 +338,7 @@ public class PembelianNew extends javax.swing.JFrame {
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 100, 20));
 
         jLabel11.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jLabel11.setText("Harga          Rp");
+        jLabel11.setText("Harga           Rp");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 110, 20));
 
         txKodeBarang.addActionListener(new java.awt.event.ActionListener() {
@@ -672,19 +673,19 @@ public class PembelianNew extends javax.swing.JFrame {
         //sisa= stok-jmb;
         //jTextField10.setText(Double.toString(bayar));
         //jTextField14.setText(Integer.toString(sisa));
-        Double n1;
-        Double n2;
-        Double n3;
-        Double proses;
-        Double prosess;
-        n1 = Double.valueOf(txJumlahBeli.getText());
-        n2 = Double.valueOf(txStock.getText());
-        n3 = Double.valueOf(txHarga.getText());
-
-        proses = n2 - n1;
-        prosess = n3 * n1;
-        txSisaStock.setText("" + proses);
-        txJumlahBayar.setText("" + prosess);
+//        Double n1;
+//        Double n2;
+//        Double n3;
+//        Double proses;
+//        Double prosess;
+//        n1 = Double.valueOf(txJumlahBeli.getText());
+//        n2 = Double.valueOf(txStock.getText());
+//        n3 = Double.valueOf(txHarga.getText());
+//
+//        proses = n2 - n1;
+//        prosess = n3 * n1;
+//        txSisaStock.setText("" + proses);
+//        txJumlahBayar.setText("" + prosess);
     }//GEN-LAST:event_txJumlahBeliActionPerformed
 
     private void txJumlahBeliFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txJumlahBeliFocusGained
@@ -707,14 +708,14 @@ public class PembelianNew extends javax.swing.JFrame {
         n3 = Integer.valueOf(txHarga.getText());
 
         if (n2 > n1) {
-            proses = n2 - n1;
+            proses = n2 + n1;
             prosess = n3 * n1;
             txSisaStock.setText("" + proses);
             txJumlahBayar.setText("" + prosess);
         } else {
             txJumlahBeli.setText(txStock.getText());
             n1 = Integer.valueOf(txJumlahBeli.getText());
-            proses = n2 - n1;
+            proses = n2 + n1;
             prosess = n3 * n1;
             txSisaStock.setText("" + proses);
             txJumlahBayar.setText("" + prosess);
@@ -750,7 +751,7 @@ public class PembelianNew extends javax.swing.JFrame {
                 SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
                 String tgl = formater.format(txTglJual.getDate());
                 try {
-                    sql = "insert into transaksijual values('" + txNoFaktur.getText()
+                    sql = "insert into transaksibeli values('" + txNoFaktur.getText()
                     + "','" + tgl
                     + "','" + txKodePelanggan.getText()
                     + "','" + txKodeBarang.getText()
@@ -762,10 +763,10 @@ public class PembelianNew extends javax.swing.JFrame {
                     + "')";
                     st = con.createStatement();
                     st.executeUpdate(sql);
-                    updateStok(txKodeBarang.getText(), txJumlahBeli.getText(), "kurang");
-                    cigap();
-                    tengok();
-                    cibuak();
+                    updateStok(txKodeBarang.getText(), txJumlahBeli.getText(), "tambah");
+                    showBarang();
+                    showSuplier();
+                    showTransaksi();
                     bersih();
                     JOptionPane.showMessageDialog(null, "SUKSES TERSIMPAN");
 
@@ -784,12 +785,12 @@ public class PembelianNew extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
 
-            sql = "DELETE from transaksijual where no_fak_jual='" + txNoFaktur.getText() + "'";
+            sql = "DELETE from transaksibeli where no_fak_beli='" + txNoFaktur.getText() + "'";
             st = con.createStatement();
             st.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
             bersih();
-            cibuak();
+            showTransaksi();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
