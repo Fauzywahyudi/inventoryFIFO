@@ -51,8 +51,8 @@ public class MenuPimpinan extends javax.swing.JFrame {
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenu8 = new javax.swing.JMenu();
-        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        jCheckBoxMenuItem2 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu9 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,23 +132,23 @@ public class MenuPimpinan extends javax.swing.JFrame {
         jMenu8.setText("Diagram");
         jMenu8.setFont(new java.awt.Font("Stencil", 0, 18)); // NOI18N
 
-        jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Diagram Batang");
-        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        jMenuItem2.setText("Diagram Pembelian");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem1ActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu8.add(jCheckBoxMenuItem1);
+        jMenu8.add(jMenuItem2);
 
-        jCheckBoxMenuItem2.setSelected(true);
-        jCheckBoxMenuItem2.setText("Diagram Lingkaran");
-        jCheckBoxMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.setFont(new java.awt.Font("Gabriola", 0, 18)); // NOI18N
+        jMenuItem3.setText("Diagram Penjualan");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBoxMenuItem2ActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu8.add(jCheckBoxMenuItem2);
+        jMenu8.add(jMenuItem3);
 
         jMenuBar2.add(jMenu8);
 
@@ -171,40 +171,6 @@ public class MenuPimpinan extends javax.swing.JFrame {
          new MenuUtama().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jMenu9MouseClicked
-
-    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-        // TODO add your handling code here:
-         try{
-            JDialog window =new JDialog(this, "Cetak Laporan");
-            window.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-            SwingReportViewer viewer=new SwingReportViewer();
-            URLRenderData renderData = new URLRenderData( "http://localhost:9000/?report=file:" +
-                System.getProperty("user.dir")+"/src/Report/laporan_batangG.rpt");
-            viewer.addNewReportView(renderData);
-            window.getContentPane().add(BorderLayout.CENTER,viewer);
-            window.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
-
-    private void jCheckBoxMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem2ActionPerformed
-        // TODO add your handling code here:
-          try{
-            JDialog window =new JDialog(this, "Cetak Laporan");
-            window.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-            SwingReportViewer viewer=new SwingReportViewer();
-            URLRenderData renderData = new URLRenderData( "http://localhost:9000/?report=file:"+
-                System.getProperty("user.dir")+"/src/Report/laporan_lingkaranN.rpt");
-            viewer.addNewReportView(renderData);
-            window.getContentPane().add(BorderLayout.CENTER,viewer);
-            window.setVisible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    
-        
-    }//GEN-LAST:event_jCheckBoxMenuItem2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
@@ -252,6 +218,16 @@ public class MenuPimpinan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+       new Diagram_Pembelian().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       new Diagram_Penjualan().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,8 +264,6 @@ public class MenuPimpinan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
-    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JMenu jMenu7;
@@ -297,6 +271,8 @@ public class MenuPimpinan extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
