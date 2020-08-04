@@ -68,7 +68,7 @@ public class Menu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1380, 110));
 
-        jPanel2.setBackground(new java.awt.Color(204, 153, 0));
+        jPanel2.setBackground(new java.awt.Color(51, 204, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Modern No. 20", 1, 48)); // NOI18N

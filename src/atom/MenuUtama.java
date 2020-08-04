@@ -48,10 +48,10 @@ public class MenuUtama extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jButton1.setText("LOGIN");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +61,7 @@ public class MenuUtama extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 370, 110, 50));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 0));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Stencil", 1, 18)); // NOI18N
         jButton2.setText("EXIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +102,7 @@ public class MenuUtama extends javax.swing.JFrame {
         // TODO add your handling code here:
          Login ok = new Login();
         ok.setVisible(true);
+        this.dispose();
         
     }//GEN-LAST:event_jButton1ActionPerformed
 

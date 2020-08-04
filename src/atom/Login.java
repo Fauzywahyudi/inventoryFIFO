@@ -89,7 +89,7 @@ public class Login extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N

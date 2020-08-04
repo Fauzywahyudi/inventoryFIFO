@@ -10,12 +10,15 @@ import com.inet.viewer.URLRenderData;
 import java.awt.BorderLayout;
 import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.Toolkit;
+import java.io.IOException;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -45,18 +48,27 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        rdSemua = new javax.swing.JRadioButton();
+        rdPerbulan = new javax.swing.JRadioButton();
+        rdPertahun = new javax.swing.JRadioButton();
+        cbPertahun = new javax.swing.JComboBox();
+        cbBulan = new javax.swing.JComboBox();
+        cbPerbulanTahun = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(153, 255, 153));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(102, 102, 0));
         jButton1.setFont(new java.awt.Font("Gabriola", 1, 18)); // NOI18N
@@ -66,7 +78,8 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, 50));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(350, 300, 100, 50);
 
         jButton2.setBackground(new java.awt.Color(102, 102, 0));
         jButton2.setFont(new java.awt.Font("Gabriola", 1, 18)); // NOI18N
@@ -76,20 +89,71 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 100, 50));
+        jPanel1.add(jButton2);
+        jButton2.setBounds(690, 300, 100, 50);
 
-        jLabel1.setFont(new java.awt.Font("Angsana New", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("LAPORAN PENJUALAN");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 30, 390, 60));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(0, 10, 810, 60);
 
-        jLabel2.setFont(new java.awt.Font("Angsana New", 1, 48)); // NOI18N
-        jLabel2.setText("TOKO RONI KOMPUTER");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 400, -1));
+        jLabel2.setFont(new java.awt.Font("Angsana New", 1, 36)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("TOKO DAYA FAMILY");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(0, 70, 810, 40);
 
-        jLabel3.setForeground(new java.awt.Color(204, 255, 102));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        buttonGroup1.add(rdSemua);
+        rdSemua.setText("Semua");
+        rdSemua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdSemuaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(rdSemua);
+        rdSemua.setBounds(30, 293, 90, 30);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 700, 260));
+        buttonGroup1.add(rdPerbulan);
+        rdPerbulan.setText("Perbulan");
+        jPanel1.add(rdPerbulan);
+        rdPerbulan.setBounds(30, 150, 90, 30);
+
+        buttonGroup1.add(rdPertahun);
+        rdPertahun.setText("Pertahun");
+        jPanel1.add(rdPertahun);
+        rdPertahun.setBounds(30, 220, 90, 30);
+
+        cbPertahun.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Pilih Tahun-", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
+        jPanel1.add(cbPertahun);
+        cbPertahun.setBounds(160, 220, 90, 30);
+
+        cbBulan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Pilih Bulan-", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+        jPanel1.add(cbBulan);
+        cbBulan.setBounds(160, 150, 90, 30);
+
+        cbPerbulanTahun.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "-Pilih Tahun-", "2020", "2019", "2018", "2017", "2016", "2015", "2014", "2013", "2012", "2011", "2010" }));
+        cbPerbulanTahun.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbPerbulanTahunActionPerformed(evt);
+            }
+        });
+        jPanel1.add(cbPerbulanTahun);
+        cbPerbulanTahun.setBounds(280, 150, 90, 30);
+
+        jLabel3.setText("Tahun");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(160, 200, 34, 14);
+
+        jLabel5.setText("Bulan");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(160, 130, 34, 14);
+
+        jLabel6.setText("Tahun");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(280, 130, 34, 14);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 370));
 
         pack();
         setLocationRelativeTo(null);
@@ -97,25 +161,47 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try {
-            JFrame window=new JFrame("Report");                  
-            SwingReportViewer viewer = new SwingReportViewer();
-            URLRenderData renderConnection = new URLRenderData( "http://localhost:9000/?report=file:" +
-            System.getProperty("user.dir")+"/src/Report/L_penjualan.rpt");
-            viewer.addNewReportView( renderConnection );
-            window.getContentPane().add( BorderLayout.CENTER, viewer);
-            window.setVisible( true );
-            window.setExtendedState(MAXIMIZED_BOTH);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+        if (rdSemua.isSelected()) {
+            try {
+                String url = "http://localhost/inventoryFIFO/laporanPenjualanSemua.php";
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else if(rdPertahun.isSelected()){
+            String tahun = (String) cbPertahun.getSelectedItem();
+            try {
+                String url = "http://localhost/inventoryFIFO/laporanPenjualanPertahun.php?tahun="+tahun;
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+            String tahun = (String) cbPerbulanTahun.getSelectedItem();
+            String bulan = (String) cbBulan.getSelectedItem();
+            
+            try {
+                String url = "http://localhost/inventoryFIFO/laporanPenjualanPerbulan.php?tahun="+tahun+"&bulan="+bulan;
+                java.awt.Desktop.getDesktop().browse(java.net.URI.create(url));
+            } catch (IOException ex) {
+                Logger.getLogger(MenuPimpinan.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.dispose();
-        new Menu().setVisible(true);
+        new MenuPimpinan().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void rdSemuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdSemuaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rdSemuaActionPerformed
+
+    private void cbPerbulanTahunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPerbulanTahunActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbPerbulanTahunActionPerformed
 
     /**
      * @param args the command line arguments
@@ -153,11 +239,20 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JComboBox cbBulan;
+    private javax.swing.JComboBox cbPerbulanTahun;
+    private javax.swing.JComboBox cbPertahun;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton rdPerbulan;
+    private javax.swing.JRadioButton rdPertahun;
+    private javax.swing.JRadioButton rdSemua;
     // End of variables declaration//GEN-END:variables
 }
