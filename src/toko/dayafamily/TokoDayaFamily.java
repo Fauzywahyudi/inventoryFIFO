@@ -1,6 +1,6 @@
 package toko.dayafamily;
 
-import atom.MenuUtama;
+import view.MenuUtama;
 
 public class TokoDayaFamily {
  
