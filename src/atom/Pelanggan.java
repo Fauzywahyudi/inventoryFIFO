@@ -103,7 +103,7 @@ public class Pelanggan extends javax.swing.JFrame {
         jLabel4.setText("INPUT DATA PELANGGAN");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 470, 40));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("SAVE");
@@ -114,7 +114,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, 110, 50));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 0));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
         jButton2.setText("EDIT");
@@ -125,7 +125,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 110, 50));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 0));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(51, 51, 51));
         jButton3.setText("DELETE");
@@ -136,7 +136,7 @@ public class Pelanggan extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 130, 50));
 
-        jButton4.setBackground(new java.awt.Color(102, 102, 0));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
         jButton4.setText("EXIT");

@@ -129,7 +129,7 @@ public class Suplier extends javax.swing.JFrame {
         jLabel1.setText("INPUT DATA SUPLIER");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 420, 50));
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(51, 51, 51));
         jButton1.setText("SAVE");
@@ -140,7 +140,7 @@ public class Suplier extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 110, 50));
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 0));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(51, 51, 51));
         jButton2.setText("EDIT");
@@ -151,7 +151,7 @@ public class Suplier extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 110, 50));
 
-        jButton3.setBackground(new java.awt.Color(102, 102, 0));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(51, 51, 51));
         jButton3.setText("DELETE");
@@ -162,7 +162,7 @@ public class Suplier extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 130, 50));
 
-        jButton4.setBackground(new java.awt.Color(102, 102, 0));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
         jButton4.setText("EXIT");

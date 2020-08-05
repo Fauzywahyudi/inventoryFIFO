@@ -142,7 +142,7 @@ public class Barang extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnSave.setBackground(new java.awt.Color(102, 102, 0));
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSave.setForeground(new java.awt.Color(51, 51, 51));
         btnSave.setText("SAVE");
@@ -153,7 +153,7 @@ public class Barang extends javax.swing.JFrame {
         });
         jPanel2.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 110, 50));
 
-        btnEdit.setBackground(new java.awt.Color(102, 102, 0));
+        btnEdit.setBackground(new java.awt.Color(255, 255, 255));
         btnEdit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnEdit.setForeground(new java.awt.Color(51, 51, 51));
         btnEdit.setText("EDIT");
@@ -164,7 +164,7 @@ public class Barang extends javax.swing.JFrame {
         });
         jPanel2.add(btnEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 110, 50));
 
-        btnDelete.setBackground(new java.awt.Color(102, 102, 0));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(51, 51, 51));
         btnDelete.setText("RESET");
@@ -175,7 +175,7 @@ public class Barang extends javax.swing.JFrame {
         });
         jPanel2.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 440, 130, 50));
 
-        jButton4.setBackground(new java.awt.Color(102, 102, 0));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(51, 51, 51));
         jButton4.setText("EXIT");
@@ -280,7 +280,7 @@ public class Barang extends javax.swing.JFrame {
         });
         jPanel2.add(txHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 160, 30));
 
-        btnDelete1.setBackground(new java.awt.Color(102, 102, 0));
+        btnDelete1.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDelete1.setForeground(new java.awt.Color(51, 51, 51));
         btnDelete1.setText("DELETE");
@@ -430,6 +430,22 @@ public class Barang extends javax.swing.JFrame {
 
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         // TODO add your handling code here:
+        try {
+            if (txKodeBarang.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "DELETE from barang where kd_barang='" + txKodeBarang.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
+                bersih();
+                cibuak();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
     /**

@@ -113,7 +113,7 @@ public class penjualan extends javax.swing.JFrame {
         txSisaBayar.setText("");
         txSisaStock.setText("");
         faktur();
-
+showBarang();
     }
 
     private void showBarang() {
@@ -126,7 +126,7 @@ public class penjualan extends javax.swing.JFrame {
             jScrollPane2.setViewportView(tabelBarang);
             String kd_barang = "", nm_barang = "", satuan = "", harga_jual = "", stock = "";
             try {
-                sql = "select * from barang ORDER BY kd_barang ASC";
+                sql = "select * from barang ORDER BY tgl_beli ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
@@ -412,7 +412,7 @@ public class penjualan extends javax.swing.JFrame {
         });
         jPanel1.add(txBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 150, 30));
 
-        btnSave.setBackground(new java.awt.Color(102, 102, 0));
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnSave.setForeground(new java.awt.Color(51, 51, 51));
         btnSave.setText("TAMBAH");
@@ -423,7 +423,7 @@ public class penjualan extends javax.swing.JFrame {
         });
         jPanel1.add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 120, 50));
 
-        btnDelete.setBackground(new java.awt.Color(102, 102, 0));
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnDelete.setForeground(new java.awt.Color(51, 51, 51));
         btnDelete.setText("DELETE");
@@ -436,7 +436,7 @@ public class penjualan extends javax.swing.JFrame {
 
         btnExit.setBackground(new java.awt.Color(102, 102, 0));
         btnExit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(51, 51, 51));
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("EXIT");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -526,6 +526,7 @@ public class penjualan extends javax.swing.JFrame {
         jPanel1.add(txSisaBayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 150, 30));
         jPanel1.add(txSisaStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 150, 30));
 
+        btnNew.setBackground(new java.awt.Color(255, 255, 255));
         btnNew.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         btnNew.setForeground(new java.awt.Color(51, 51, 51));
         btnNew.setText("RESET");
@@ -684,10 +685,22 @@ public class penjualan extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         try {
-
+            int stok = 0;
+            String sqlGet= "SELECT * from transaksijual WHERE no_fak_jual='" + txNoFaktur.getText() + "'";
+            st = con.createStatement();
+                rs = st.executeQuery(sqlGet);
+                while (rs.next()) {
+                    stok = Integer.valueOf(rs.getString("jumlah"));
+                }
+            int jumBeli = Integer.valueOf(txJumlahBeli.getText());
+            String kdBarang = txKodeBarang.getText();
             sql = "DELETE from transaksijual where no_fak_jual='" + txNoFaktur.getText() + "'";
             st = con.createStatement();
             st.execute(sql);
+            sql = "UPDATE barang set stock=stock + "+jumBeli+"  where kd_barang='"+kdBarang+"'";
+            st = con.createStatement();
+            st.execute(sql);
+            
             JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
             bersih();
             showTransaksi();
@@ -856,6 +869,8 @@ public class penjualan extends javax.swing.JFrame {
             Logger.getLogger(penjualan.class.getName()).log(Level.SEVERE, null, ex);
         }
         txNoFaktur.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 0).toString());
+        txJumlahBeli.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 8).toString());
+        txKodeBarang.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_tabelTransaksiMouseClicked
 
     /**
