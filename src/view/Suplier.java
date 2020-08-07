@@ -35,7 +35,7 @@ public class Suplier extends javax.swing.JFrame {
     /**
      * Creates new form suplier
      */
-    public Suplier() {
+    public Suplier() throws SQLException {
         initComponents();
         Koneksi koneksi = new Koneksi();
         con = koneksi.getKoneksi();
@@ -46,16 +46,33 @@ public class Suplier extends javax.swing.JFrame {
         }
         bersih();
         cibuak();
+        
+    }
+    
+    private int getKode() throws SQLException {
+        sql = "select * from suplier ORDER BY kd_sup DESC";
+        st = con.createStatement();
+        rs = st.executeQuery(sql);
+        int lastKode = 0;
+        int newKode = 0;
+        if(rs.next()){
+            lastKode = Integer.parseInt(rs.getString("kd_sup"));
+            newKode = lastKode+1;
+        }else{
+            newKode = 1;
+        }
+        return newKode;
     }
 
-    private void bersih() {
+    private void bersih() throws SQLException {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        txKodeSuplier.setText("");
+        txKodeSuplier.setText(String.valueOf(getKode()));
         txNamaSuplier.setText("");
         txNohp.setText("");
         txAlamat.setText("");
         txKodeSuplier.requestFocus();
-        txKodeSuplier.setEditable(true);
+        txKodeSuplier.setEditable(false);
+        
     }
 
     private void cibuak() {
@@ -115,6 +132,7 @@ public class Suplier extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,13 +172,13 @@ public class Suplier extends javax.swing.JFrame {
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setForeground(new java.awt.Color(51, 51, 51));
-        jButton3.setText("DELETE");
+        jButton3.setText("RESET");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 350, 130, 50));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 350, 130, 50));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -225,7 +243,18 @@ public class Suplier extends javax.swing.JFrame {
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 70, -1));
 
         jLabel5.setBackground(new java.awt.Color(51, 51, 255));
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, 40, 2560, 370));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-270, -10, 2560, 370));
+
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(51, 51, 51));
+        jButton5.setText("DELETE");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, 130, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,23 +324,13 @@ public class Suplier extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-        try {
-            if (txKodeSuplier.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
-            } else {
-                sql = "DELETE from suplier where kd_sup='" + txKodeSuplier.getText() + "'";
-                st = con.createStatement();
-                st.execute(sql);
-                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
-                bersih();
-                cibuak();
-            }
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
+       
+ try {
+            // TODO add your handling code here:
+            bersih();
+        } catch (SQLException ex) {
+            Logger.getLogger(Suplier.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void tabelSuplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelSuplierMouseClicked
@@ -347,6 +366,26 @@ public class Suplier extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_txKodeSuplierActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        try {
+//            String kodeBarang = (String) defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0);
+//            if (kodeBarang.equals("")) {
+                if (txKodeSuplier.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
+            } else {
+                sql = "DELETE from suplier where kd_sup='" + txKodeSuplier.getText() + "'";
+                st = con.createStatement();
+                st.execute(sql);
+                JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
+                bersih();
+                cibuak();
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -377,7 +416,11 @@ public class Suplier extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Suplier().setVisible(true);
+                try {
+                    new Suplier().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Suplier.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -386,6 +429,7 @@ public class Suplier extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

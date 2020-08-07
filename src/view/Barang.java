@@ -63,7 +63,6 @@ public class Barang extends javax.swing.JFrame {
         int newKode = 0;
         if(rs.next()){
             lastKode = Integer.parseInt(rs.getString("kd_barang"));
-            System.out.println(lastKode);
             newKode = lastKode+1;
         }else{
             newKode = 1;
