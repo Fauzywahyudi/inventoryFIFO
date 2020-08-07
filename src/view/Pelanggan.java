@@ -35,7 +35,7 @@ public class Pelanggan extends javax.swing.JFrame {
     /**
      * Creates new form costumer
      */
-    public Pelanggan() {
+    public Pelanggan() throws SQLException {
         initComponents();
 
         Koneksi koneksi = new Koneksi();
@@ -47,15 +47,31 @@ public class Pelanggan extends javax.swing.JFrame {
         }
         bersih();
         cibuak();
+        
+    }
+    
+    private int getKode() throws SQLException {
+        sql = "select * from pelanggan ORDER BY kd_pel DESC";
+        st = con.createStatement();
+        rs = st.executeQuery(sql);
+        int lastKode = 0;
+        int newKode = 0;
+        if(rs.next()){
+            lastKode = Integer.parseInt(rs.getString("kd_pel"));
+            newKode = lastKode+1;
+        }else{
+            newKode = 1;
+        }
+        return newKode;
     }
 
-    private void bersih() {
+    private void bersih() throws SQLException {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        txKodePelanggan.setText("");
+        txKodePelanggan.setText(String.valueOf(getKode()));
         txNamaPelanggan.setText("");
         txNohp.setText("");
         txAlamat.setText("");
-        txKodePelanggan.setEditable(true);
+        txKodePelanggan.setEditable(false);
         txKodePelanggan.requestFocus();
     }
 
@@ -145,7 +161,7 @@ public class Pelanggan extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 410, 120, 50));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 410, 120, 50));
 
         tabelPelanggan.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -376,7 +392,11 @@ public class Pelanggan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Pelanggan().setVisible(true);
+                try {
+                    new Pelanggan().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Pelanggan.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
