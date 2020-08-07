@@ -287,30 +287,6 @@ public class Suplier extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void txKodeSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeSuplierActionPerformed
-        // TODO add your handling code here:
-//        try {
-//            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
-//            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
-//            st = con.createStatement();
-//            String sql = "select * from suplier where kd_suplier like '" + txKodeSuplier.getText() + "'";
-//            ResultSet rs = st.executeQuery(sql);
-//            if (rs.next()) {
-//                txKodeSuplier.setText(rs.getString(1));
-//                txNamaSuplier.setText(rs.getString(2));
-//                txAlamat.setText(rs.getString(3));
-//                txNohp.setText(rs.getString(4));
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Tidak ada data");
-//
-//            }
-//            st.close();
-//            con.close();
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
-//        }
-    }//GEN-LAST:event_txKodeSuplierActionPerformed
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         this.dispose();
@@ -346,6 +322,30 @@ public class Suplier extends javax.swing.JFrame {
         txNohp.setText(dtm.getValueAt(tabelSuplier.getSelectedRow(), 3) + "");
         txKodeSuplier.setEditable(false);
     }//GEN-LAST:event_tabelSuplierMouseClicked
+
+    private void txKodeSuplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeSuplierActionPerformed
+        // TODO add your handling code here:
+        //        try {
+            //            Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+            //            con = DriverManager.getConnection("jdbc:odbc:pklpelet", "", "");
+            //            st = con.createStatement();
+            //            String sql = "select * from suplier where kd_suplier like '" + txKodeSuplier.getText() + "'";
+            //            ResultSet rs = st.executeQuery(sql);
+            //            if (rs.next()) {
+                //                txKodeSuplier.setText(rs.getString(1));
+                //                txNamaSuplier.setText(rs.getString(2));
+                //                txAlamat.setText(rs.getString(3));
+                //                txNohp.setText(rs.getString(4));
+                //            } else {
+                //                JOptionPane.showMessageDialog(null, "Tidak ada data");
+                //
+                //            }
+            //            st.close();
+            //            con.close();
+            //        } catch (Exception e) {
+            //            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
+            //        }
+    }//GEN-LAST:event_txKodeSuplierActionPerformed
 
     /**
      * @param args the command line arguments
