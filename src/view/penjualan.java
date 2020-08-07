@@ -189,7 +189,7 @@ showBarang();
 
     private void showTransaksi() {
         try {
-            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "HARGA", "STOCK", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
+            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "STOCK","HARGA", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
             dtm = new DefaultTableModel(null, rows);
             tabelTransaksi.setModel(dtm);
             tabelTransaksi.setBorder(null);
@@ -197,7 +197,7 @@ showBarang();
             jScrollPane1.setViewportView(tabelTransaksi);
             String no_faktur = "", tanggal = "", kd_costomer = "", nm_costumer = "", kd_barang = "", nm_barang = "", harga_jual = "", stock = "", jumlah = "", totalharga = "", bayar = "", sisa = "", stock_akhir = "";
             try {
-                sql = "select * from transaksijual INNER JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel INNER JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY transaksijual.tgl_jual DESC";
+                sql = "select * from transaksijual INNER JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel INNER JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY transaksijual.no_fak_jual ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
@@ -434,9 +434,9 @@ showBarang();
         });
         jPanel1.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 440, 130, 50));
 
-        btnExit.setBackground(new java.awt.Color(102, 102, 0));
+        btnExit.setBackground(new java.awt.Color(255, 255, 255));
         btnExit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setForeground(new java.awt.Color(51, 51, 51));
         btnExit.setText("EXIT");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

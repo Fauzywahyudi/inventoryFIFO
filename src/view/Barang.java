@@ -55,7 +55,7 @@ public class Barang extends javax.swing.JFrame {
 
     private void bersih() {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        txKodeBarang.setText("");
+        
         txNamaBarang.setText("");
         txHargaJual.setText("");
         txHargaBeli.setText("");
@@ -63,7 +63,6 @@ public class Barang extends javax.swing.JFrame {
         cbSatuan.setSelectedIndex(0);
         txExpired.setDate(null);
         txTglBeli.setDate(null);
-        txKodeBarang.setEditable(true);
     }
 
     private void cibuak() {
@@ -115,12 +114,10 @@ public class Barang extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelBarang = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        txKodeBarang = new javax.swing.JTextField();
         txNamaBarang = new javax.swing.JTextField();
         cbSatuan = new javax.swing.JComboBox();
         txStock = new javax.swing.JTextField();
@@ -206,49 +203,38 @@ public class Barang extends javax.swing.JFrame {
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, 670, 110));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Kode Barang");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
-
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setText("Nama Barang");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Satuan");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 30));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setText("Harga Jual");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 100, 30));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 30));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Tanggal Beli");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 100, 30));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 100, 30));
+        jPanel2.add(txNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 160, 30));
 
-        txKodeBarang.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txKodeBarangActionPerformed(evt);
-            }
-        });
-        jPanel2.add(txKodeBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 160, 30));
-        jPanel2.add(txNamaBarang, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 160, 30));
-
-        cbSatuan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih", "Pcs", "pack", "unit" }));
+        cbSatuan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pilih", "Pcs", "Pack", "Dus", "Lusin", "Kodi", "Liter", "Kotak", " " }));
         cbSatuan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbSatuanActionPerformed(evt);
             }
         });
-        jPanel2.add(cbSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 160, 30));
-        jPanel2.add(txStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 160, 30));
+        jPanel2.add(cbSatuan, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 160, 30));
+        jPanel2.add(txStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 160, 30));
 
         txHargaJual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txHargaJualActionPerformed(evt);
             }
         });
-        jPanel2.add(txHargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 270, 160, 30));
+        jPanel2.add(txHargaJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 160, 30));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 0));
         jPanel1.setLayout(null);
@@ -261,24 +247,24 @@ public class Barang extends javax.swing.JFrame {
 
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel9.setText("Stock");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 30));
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 80, 30));
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel10.setText("Expired");
-        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 80, 30));
-        jPanel2.add(txTglBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 390, 160, 30));
-        jPanel2.add(txExpired, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 160, 30));
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 30));
+        jPanel2.add(txTglBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 160, 30));
+        jPanel2.add(txExpired, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 160, 30));
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel8.setText("Harga Beli");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 100, 30));
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 100, 30));
 
         txHargaBeli.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txHargaBeliActionPerformed(evt);
             }
         });
-        jPanel2.add(txHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, 160, 30));
+        jPanel2.add(txHargaBeli, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 160, 30));
 
         btnDelete1.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -303,7 +289,7 @@ public class Barang extends javax.swing.JFrame {
         String tglBeli = formater.format(txTglBeli.getDate());
         try {
             sql = "INSERT INTO `barang`(`kd_barang`, `nm_barang`, `satuan`, harga_beli,`harga_jual`, `stock`, `expired`, `tgl_beli`) "
-                    + "VALUES ('" + txKodeBarang.getText() + "',"
+                    + "VALUES (NULL,"
                     + "'" + txNamaBarang.getText() + "',"
                     + "'" + cbSatuan.getSelectedItem() + "',"
                     + "'" + txHargaBeli.getText() + "',"
@@ -337,7 +323,8 @@ public class Barang extends javax.swing.JFrame {
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
 //        // TODO add your handling code here:
         try {
-            if (txKodeBarang.getText().equals("")) {
+            String kodeBarang = (String) defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0);
+            if (kodeBarang.equals("")) {
                 JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
             } else {
                 SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
@@ -352,7 +339,7 @@ public class Barang extends javax.swing.JFrame {
                         + "`stock`='" + txStock.getText() + "',"
                         + "`expired`='" + expired + "',"
                         + "`tgl_beli`='" + tglBeli + "'"
-                        + " WHERE kd_barang='" + txKodeBarang.getText() + "'";
+                        + " WHERE kd_barang='" + kodeBarang + "'";
                 st = con.createStatement();
                 st.execute(sql);
                 JOptionPane.showMessageDialog(null, "Data Berhasil Di EDIT");
@@ -365,30 +352,6 @@ public class Barang extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }//GEN-LAST:event_btnEditActionPerformed
-
-    private void txKodeBarangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txKodeBarangActionPerformed
-        // TODO add your handling code here:
-        try {
-
-            st = con.createStatement();
-            String sql = "select * from barang where kd_barang like '" + txKodeBarang.getText() + "'";
-            ResultSet rs = st.executeQuery(sql);
-            if (rs.next()) {
-                txKodeBarang.setText(rs.getString(1));
-                txNamaBarang.setText(rs.getString(2));
-                cbSatuan.setSelectedItem(rs.getString(3));
-                txHargaJual.setText(rs.getString(4));
-                txStock.setText(rs.getString(5));
-            } else {
-                JOptionPane.showMessageDialog(null, "Tidak ada data");
-
-            }
-            st.close();
-            con.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error" + e.getMessage());
-        }
-    }//GEN-LAST:event_txKodeBarangActionPerformed
 
     private void cbSatuanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbSatuanActionPerformed
         // TODO add your handling code here:
@@ -412,7 +375,6 @@ public class Barang extends javax.swing.JFrame {
             Logger.getLogger(Barang.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        txKodeBarang.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0) + "");
         txNamaBarang.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 1) + "");
         txHargaBeli.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 3) + "");
         txHargaJual.setText(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 4) + "");
@@ -420,8 +382,7 @@ public class Barang extends javax.swing.JFrame {
         txExpired.setDate(expired);
         txTglBeli.setDate(tglBeli);
         cbSatuan.setSelectedItem(defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 2) + "");
-
-        txKodeBarang.setEditable(false);
+       
     }//GEN-LAST:event_tabelBarangMouseClicked
 
     private void txHargaBeliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txHargaBeliActionPerformed
@@ -431,10 +392,11 @@ public class Barang extends javax.swing.JFrame {
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         // TODO add your handling code here:
         try {
-            if (txKodeBarang.getText().equals("")) {
+            String kodeBarang = (String) defaultTableModel.getValueAt(tabelBarang.getSelectedRow(), 0);
+            if (kodeBarang.equals("")) {
                 JOptionPane.showMessageDialog(null, "Pilih salah satu data pada tabel");
             } else {
-                sql = "DELETE from barang where kd_barang='" + txKodeBarang.getText() + "'";
+                sql = "DELETE from barang where kd_barang='" + kodeBarang + "'";
                 st = con.createStatement();
                 st.execute(sql);
                 JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
@@ -491,7 +453,6 @@ public class Barang extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -506,7 +467,6 @@ public class Barang extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser txExpired;
     private javax.swing.JTextField txHargaBeli;
     private javax.swing.JTextField txHargaJual;
-    private javax.swing.JTextField txKodeBarang;
     private javax.swing.JTextField txNamaBarang;
     private javax.swing.JTextField txStock;
     private com.toedter.calendar.JDateChooser txTglBeli;

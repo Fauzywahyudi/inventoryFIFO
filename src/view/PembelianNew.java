@@ -184,7 +184,7 @@ public class PembelianNew extends javax.swing.JFrame {
 
     private void showTransaksi() {
         try {
-            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "HARGA BELI", "STOCK", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
+            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG","STOCK", "HARGA BELI", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
             dtm = new DefaultTableModel(null, rows);
             tabelTransaksi.setModel(dtm);
             tabelTransaksi.setBorder(null);
@@ -192,7 +192,7 @@ public class PembelianNew extends javax.swing.JFrame {
             jScrollPane1.setViewportView(tabelTransaksi);
             String no_faktur = "", tanggal = "", kd_costomer = "", nm_costumer = "", kd_barang = "", nm_barang = "", harga_jual = "", stock = "", jumlah = "", totalharga = "", bayar = "", sisa = "", stock_akhir = "";
             try {
-                sql = "select * from transaksibeli INNER JOIN suplier ON transaksibeli.kd_sup=suplier.kd_sup INNER JOIN barang ON transaksibeli.kd_barang=barang.kd_barang ORDER BY transaksibeli.tgl_beli DESC";
+                sql = "select * from transaksibeli INNER JOIN suplier ON transaksibeli.kd_sup=suplier.kd_sup INNER JOIN barang ON transaksibeli.kd_barang=barang.kd_barang ORDER BY transaksibeli.no_fak_beli ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {

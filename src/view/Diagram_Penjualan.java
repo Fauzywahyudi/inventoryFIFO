@@ -69,7 +69,7 @@ public class Diagram_Penjualan extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
         jPanel1.setLayout(null);
 
-        jButton1.setBackground(new java.awt.Color(102, 102, 0));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("Gabriola", 1, 18)); // NOI18N
         jButton1.setText("LIHAT GRAFIK");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class Diagram_Penjualan extends javax.swing.JFrame {
         jPanel1.add(jButton1);
         jButton1.setBounds(350, 300, 150, 50);
 
-        jButton2.setBackground(new java.awt.Color(102, 102, 0));
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Gabriola", 1, 18)); // NOI18N
         jButton2.setText("EXIT");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
