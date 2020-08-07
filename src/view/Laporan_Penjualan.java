@@ -63,11 +63,12 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
         jPanel1.setLayout(null);
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
@@ -102,7 +103,7 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("TOKO DAYA FAMILY");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(0, 70, 810, 40);
+        jLabel2.setBounds(0, 60, 810, 40);
 
         buttonGroup1.add(rdSemua);
         rdSemua.setText("Semua");
@@ -152,6 +153,10 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
         jLabel6.setText("Tahun");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(280, 130, 34, 14);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logoNew.png"))); // NOI18N
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(710, 0, 100, 100);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 370));
 
@@ -250,6 +255,7 @@ public class Laporan_Penjualan extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton rdPerbulan;
     private javax.swing.JRadioButton rdPertahun;

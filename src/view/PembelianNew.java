@@ -269,9 +269,9 @@ public class PembelianNew extends javax.swing.JFrame {
         btnNew = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         txTglJual = new com.toedter.calendar.JDateChooser();
+        jLabel18 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -541,10 +541,6 @@ public class PembelianNew extends javax.swing.JFrame {
         jLabel17.setText("Tabel Suplier");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, 100, -1));
 
-        jPanel2.setBackground(new java.awt.Color(255, 153, 0));
-        jPanel2.setLayout(null);
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 1230, -1));
-
         jButton7.setBackground(new java.awt.Color(102, 102, 0));
         jButton7.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton7.setForeground(new java.awt.Color(51, 51, 51));
@@ -556,6 +552,9 @@ public class PembelianNew extends javax.swing.JFrame {
         });
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 440, 120, 50));
         jPanel1.add(txTglJual, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 150, 30));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/logoNew.png"))); // NOI18N
+        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -917,6 +916,7 @@ public class PembelianNew extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -926,7 +926,6 @@ public class PembelianNew extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
