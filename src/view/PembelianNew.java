@@ -64,24 +64,24 @@ public class PembelianNew extends javax.swing.JFrame {
         if (rs.next()) {
             String kd = rs.getString("no_fak_beli");
             int no = Integer.parseInt(kd) + 1;
-            String No1 = "";
-            if (no < 10) {
-                No1 = "00000";
-            } else if (no < 100) {
-                No1 = "0000";
-            } else if (no < 1000) {
-                No1 = "000";
-            } else if (no < 10000) {
-                No1 = "00";
-            } else if (no < 100000) {
-                No1 = "0";
-            } else {
-                No1 = "";
-            }
+//            String No1 = "";
+//            if (no < 10) {
+//                No1 = "00000";
+//            } else if (no < 100) {
+//                No1 = "0000";
+//            } else if (no < 1000) {
+//                No1 = "000";
+//            } else if (no < 10000) {
+//                No1 = "00";
+//            } else if (no < 100000) {
+//                No1 = "0";
+//            } else {
+//                No1 = "";
+//            }
 
-            txNoFaktur.setText(No1 + no);
+            txNoFaktur.setText("" + no);
         } else {
-            txNoFaktur.setText("000001");
+            txNoFaktur.setText("1");
         }
     }
 
@@ -786,18 +786,20 @@ public class PembelianNew extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             int stok = 0;
-            String sqlGet = "SELECT * from transaksibeli WHERE no_fak_beli='" + txNoFaktur.getText() + "'";
+            String noFaktur = tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 0).toString();
+            String kodeBarang = tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 4).toString();
+            String jumlah = tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 8).toString();
+            String sqlGet = "SELECT * from transaksibeli WHERE no_fak_beli='" + noFaktur + "'";
             st = con.createStatement();
             rs = st.executeQuery(sqlGet);
             while (rs.next()) {
                 stok = Integer.valueOf(rs.getString("jumlah"));
             }
-            int jumBeli = Integer.valueOf(txJumlahBeli.getText());
-            String kdBarang = txKodeBarang.getText();
-            sql = "DELETE from transaksibeli where no_fak_beli='" + txNoFaktur.getText() + "'";
+            int jumBeli = Integer.valueOf(jumlah);
+            sql = "DELETE from transaksibeli where no_fak_beli='" + noFaktur + "'";
             st = con.createStatement();
             st.execute(sql);
-            sql = "UPDATE barang set stock=stock - "+jumBeli+"  where kd_barang='"+kdBarang+"'";
+            sql = "UPDATE barang set stock=stock - "+jumBeli+"  where kd_barang='"+kodeBarang+"'";
             st = con.createStatement();
             st.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
@@ -833,9 +835,10 @@ public class PembelianNew extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(penjualan.class.getName()).log(Level.SEVERE, null, ex);
         }
-        txNoFaktur.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 0).toString());
-        txJumlahBeli.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 8).toString());
-        txKodeBarang.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 4).toString());
+//        txNoFaktur.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 0).toString());
+//        
+//        txJumlahBeli.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 8).toString());
+//        txKodeBarang.setText(tabelTransaksi.getValueAt(tabelTransaksi.getSelectedRow(), 4).toString());
     }//GEN-LAST:event_tabelTransaksiMouseClicked
 
     private void tabelSuplierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelSuplierMouseClicked
