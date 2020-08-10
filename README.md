@@ -1,3 +1,1 @@
 # inventoryFIFO
-
-bla bla
