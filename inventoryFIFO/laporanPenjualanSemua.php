@@ -55,7 +55,7 @@
 
 
 
-                        $sql = $kon->query("SELECT transaksijual.no_fak_jual, transaksijual.tgl_jual, pelanggan.nm_pel, barang.nm_barang, transaksijual.jumlah, transaksijual.harga, transaksijual.total FROM transaksijual JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY transaksijual.tgl_jual");
+                        $sql = $kon->query("SELECT transaksijual.no_fak_jual, transaksijual.tgl_jual, pelanggan.nm_pel, barang.nm_barang, transaksijual.jumlah, transaksijual.harga, transaksijual.total FROM transaksijual JOIN pelanggan ON transaksijual.kd_pel=pelanggan.kd_pel JOIN barang ON transaksijual.kd_barang=barang.kd_barang ORDER BY transaksijual.no_fak_jual ASC");
 
                         $no = 1;
                         while ($data = $sql->fetch_array()) {

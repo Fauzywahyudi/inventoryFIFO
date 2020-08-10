@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Agu 2020 pada 19.16
+-- Waktu pembuatan: 10 Agu 2020 pada 14.19
 -- Versi server: 10.4.13-MariaDB
 -- Versi PHP: 7.4.8
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `barang` (
-  `kd_barang` int(9) NOT NULL,
+  `kd_barang` varchar(9) COLLATE latin1_general_ci NOT NULL,
   `nm_barang` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `satuan` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `harga_beli` int(9) NOT NULL,
@@ -66,7 +66,7 @@ INSERT INTO `login` (`id_user`, `username`, `password`, `level`) VALUES
 --
 
 CREATE TABLE `pelanggan` (
-  `kd_pel` int(9) NOT NULL,
+  `kd_pel` varchar(9) COLLATE latin1_general_ci NOT NULL,
   `nm_pel` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `alamat` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `no_hp` varchar(15) COLLATE latin1_general_ci NOT NULL
@@ -79,7 +79,7 @@ CREATE TABLE `pelanggan` (
 --
 
 CREATE TABLE `suplier` (
-  `kd_sup` int(9) NOT NULL,
+  `kd_sup` varchar(9) COLLATE latin1_general_ci NOT NULL,
   `nm_sup` varchar(25) COLLATE latin1_general_ci NOT NULL,
   `alamat` varchar(100) COLLATE latin1_general_ci NOT NULL,
   `no_hp` varchar(15) COLLATE latin1_general_ci NOT NULL
@@ -92,7 +92,7 @@ CREATE TABLE `suplier` (
 --
 
 CREATE TABLE `transaksibeli` (
-  `no_fak_beli` int(9) NOT NULL,
+  `no_fak_beli` varchar(9) COLLATE latin1_general_ci NOT NULL,
   `tgl_beli` date NOT NULL,
   `kd_sup` varchar(7) COLLATE latin1_general_ci NOT NULL,
   `kd_barang` varchar(7) COLLATE latin1_general_ci NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE `transaksibeli` (
 --
 
 CREATE TABLE `transaksijual` (
-  `no_fak_jual` int(9) NOT NULL,
+  `no_fak_jual` varchar(9) COLLATE latin1_general_ci NOT NULL,
   `tgl_jual` date NOT NULL,
   `kd_pel` varchar(7) COLLATE latin1_general_ci NOT NULL,
   `kd_barang` varchar(7) COLLATE latin1_general_ci NOT NULL,
@@ -166,40 +166,10 @@ ALTER TABLE `transaksijual`
 --
 
 --
--- AUTO_INCREMENT untuk tabel `barang`
---
-ALTER TABLE `barang`
-  MODIFY `kd_barang` int(9) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT untuk tabel `login`
 --
 ALTER TABLE `login`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT untuk tabel `pelanggan`
---
-ALTER TABLE `pelanggan`
-  MODIFY `kd_pel` int(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `suplier`
---
-ALTER TABLE `suplier`
-  MODIFY `kd_sup` int(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `transaksibeli`
---
-ALTER TABLE `transaksibeli`
-  MODIFY `no_fak_beli` int(9) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT untuk tabel `transaksijual`
---
-ALTER TABLE `transaksijual`
-  MODIFY `no_fak_jual` int(9) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -42,12 +42,7 @@
                     <table border="1" width="100%">
                         <tr align="center">
                             <th>NO</th>
-                            <th>No. Faktur</th>
-                            <th>Tanggal</th>
-                            <th>Suplier</th>
-                            <th>Barang</th>
-                            <th>Jumlah Item</th>
-                            <th>Harga</th>
+                            <th>Bulan Tahun</th>
                             <th>Total</th>
                         </tr>
                         <?php include 'koneksi.php';
@@ -55,21 +50,18 @@
 
 
 
-                        $sql = $kon->query("SELECT transaksibeli.no_fak_beli, transaksibeli.tgl_beli, suplier.nm_sup, barang.nm_barang, transaksibeli.jumlah, transaksibeli.harga, transaksibeli.total FROM transaksibeli JOIN suplier ON transaksibeli.kd_sup=suplier.kd_sup JOIN barang ON transaksibeli.kd_barang=barang.kd_barang WHERE YEAR(transaksibeli.tgl_beli)='" . $_GET['tahun'] . "'");
+                        $sql = $kon->query("SELECT CONCAT(YEAR(tgl_beli),'/',MONTH(tgl_beli)) AS TAHUN_BULAN, SUM(total) as TOTAL_TRANSAKSI FROM transaksibeli WHERE YEAR(tgl_beli)='$_GET[tahun]' GROUP BY YEAR(tgl_beli),MONTH(tgl_beli)");
 
                         $no = 1;
                         while ($data = $sql->fetch_array()) {
-                            $dateBeli = dateConvert($data['tgl_beli'])
+                            $mount =  substr($data['TAHUN_BULAN'], 5);
+                            $year = substr($data['TAHUN_BULAN'], 0, 4);
+
                         ?>
                             <tr>
                                 <td align="center"><?php echo $no ?></td>
-                                <td><?php echo $data['no_fak_beli'] ?></td>
-                                <td><?php echo $dateBeli ?></td>
-                                <td><?php echo $data['nm_sup'] ?></td>
-                                <td><?php echo $data['nm_barang'] ?></td>
-                                <td><?php echo $data['jumlah'] ?></td>
-                                <td><?php echo $data['harga'] ?></td>
-                                <td><?php echo $data['total'] ?></td>
+                                <td align="center"><?php echo mountName($mount) . " $year" ?></td>
+                                <td align="right"><?php echo "Rp. " . number_format($data['TOTAL_TRANSAKSI']) ?></td>
                             </tr>
                         <?php
                             $no++;
@@ -83,7 +75,18 @@
                                 </th>
                             </tr>
 
+                            <?php
+                        } else {
+                            $sqlJumlah = $kon->query("SELECT SUM(total) as TOTAL_TRANSAKSI FROM transaksibeli WHERE YEAR(tgl_beli)='$_GET[tahun]'");
+                            while ($dataArr = $sqlJumlah->fetch_array()) {
+                            ?>
+                                <tr>
+                                    <td colspan="2" align="center"><b>Total Pembelian</b></td>
+                                    <td align="right"><b><?php echo "Rp. " . number_format($dataArr['TOTAL_TRANSAKSI']) ?></b></td>
+                                </tr>
+
                         <?php
+                            }
                         }
 
                         ?>
