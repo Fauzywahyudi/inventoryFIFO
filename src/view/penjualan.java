@@ -126,7 +126,7 @@ showBarang();
             jScrollPane2.setViewportView(tabelBarang);
             String kd_barang = "", nm_barang = "", satuan = "", harga_jual = "", stock = "";
             try {
-                sql = "select * from barang ORDER BY tgl_beli ASC";
+                sql = "select * from barang ORDER BY kd_barang ASC";
                 st = con.createStatement();
                 rs = st.executeQuery(sql);
                 while (rs.next()) {
