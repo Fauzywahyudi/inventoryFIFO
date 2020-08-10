@@ -63,31 +63,31 @@ public class penjualan extends javax.swing.JFrame {
         showTransaksi();
     }
 
-    private void faktur() throws SQLException {
+     private void faktur() throws SQLException {
         sql = "select no_fak_jual from transaksijual order by no_fak_jual desc LIMIT 1";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         if (rs.next()) {
-            String kd = rs.getString("no_fak_jual");
+            String kd = rs.getString("no_fak_jual").substring(0,2);
             int no = Integer.parseInt(kd) + 1;
-//            String No1 = "";
-//            if (no < 10) {
-//                No1 = "00000";
-//            } else if (no < 100) {
-//                No1 = "0000";
-//            } else if (no < 1000) {
-//                No1 = "000";
-//            } else if (no < 10000) {
-//                No1 = "00";
-//            } else if (no < 100000) {
-//                No1 = "0";
-//            } else {
-//                No1 = "";
-//            }
+            String No1 = "";
+            if (no < 10) {
+                No1 = "00000";
+            } else if (no < 100) {
+                No1 = "0000";
+            } else if (no < 1000) {
+                No1 = "000";
+            } else if (no < 10000) {
+                No1 = "00";
+            } else if (no < 100000) {
+                No1 = "0";
+            } else {
+                No1 = "";
+            }
 
-            txNoFaktur.setText(String.valueOf(no));
+            txNoFaktur.setText("TJ"+No1 + no);
         } else {
-            txNoFaktur.setText("1");
+            txNoFaktur.setText("TJ000001");
         }
     }
 

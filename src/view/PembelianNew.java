@@ -62,26 +62,26 @@ public class PembelianNew extends javax.swing.JFrame {
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         if (rs.next()) {
-            String kd = rs.getString("no_fak_beli");
+            String kd = rs.getString("no_fak_beli").substring(0,2);
             int no = Integer.parseInt(kd) + 1;
-//            String No1 = "";
-//            if (no < 10) {
-//                No1 = "00000";
-//            } else if (no < 100) {
-//                No1 = "0000";
-//            } else if (no < 1000) {
-//                No1 = "000";
-//            } else if (no < 10000) {
-//                No1 = "00";
-//            } else if (no < 100000) {
-//                No1 = "0";
-//            } else {
-//                No1 = "";
-//            }
+            String No1 = "";
+            if (no < 10) {
+                No1 = "00000";
+            } else if (no < 100) {
+                No1 = "0000";
+            } else if (no < 1000) {
+                No1 = "000";
+            } else if (no < 10000) {
+                No1 = "00";
+            } else if (no < 100000) {
+                No1 = "0";
+            } else {
+                No1 = "";
+            }
 
-            txNoFaktur.setText("" + no);
+            txNoFaktur.setText("TB"+No1 + no);
         } else {
-            txNoFaktur.setText("1");
+            txNoFaktur.setText("TB000001");
         }
     }
 
