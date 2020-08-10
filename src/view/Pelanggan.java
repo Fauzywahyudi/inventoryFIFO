@@ -50,29 +50,57 @@ public class Pelanggan extends javax.swing.JFrame {
         
     }
     
-    private int getKode() throws SQLException {
-        sql = "select * from pelanggan ORDER BY kd_pel DESC";
-        st = con.createStatement();
-        rs = st.executeQuery(sql);
-        int lastKode = 0;
-        int newKode = 0;
-        if(rs.next()){
-            lastKode = Integer.parseInt(rs.getString("kd_pel"));
-            newKode = lastKode+1;
-        }else{
-            newKode = 1;
+//    private int getKode() throws SQLException {
+//        sql = "select * from pelanggan ORDER BY kd_pel DESC";
+//        st = con.createStatement();
+//        rs = st.executeQuery(sql);
+//        int lastKode = 0;
+//        int newKode = 0;
+//        if(rs.next()){
+//            lastKode = Integer.parseInt(rs.getString("kd_pel"));
+//            newKode = lastKode+1;
+//        }else{
+//            newKode = 1;
+//        }
+//        return newKode;
+//    }
+    
+    private void getKode() throws SQLException {
+        sql = "select * from pelanggan ORDER BY kd_pel DESC LIMIT 1";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        if (rs.next()) {
+            String kd = rs.getString("kd_pel").substring(1);
+            int no = Integer.parseInt(kd) + 1;
+            String No1 = "";
+            if (no < 10) {
+                No1 = "00000";
+            } else if (no < 100) {
+                No1 = "0000";
+            } else if (no < 1000) {
+                No1 = "000";
+            } else if (no < 10000) {
+                No1 = "00";
+            } else if (no < 100000) {
+                No1 = "0";
+            } else {
+                No1 = "";
+            }
+
+            txKodePelanggan.setText("P"+No1 + no);
+        } else {
+            txKodePelanggan.setText("P000001");
         }
-        return newKode;
     }
 
     private void bersih() throws SQLException {
 //        throw new UnsupportedOperationException("Not yet implemented");
-        txKodePelanggan.setText(String.valueOf(getKode()));
         txNamaPelanggan.setText("");
         txNohp.setText("");
         txAlamat.setText("");
         txKodePelanggan.setEditable(false);
         txKodePelanggan.requestFocus();
+        getKode();
     }
 
     /**
