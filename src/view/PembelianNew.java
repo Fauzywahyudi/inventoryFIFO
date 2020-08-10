@@ -79,7 +79,7 @@ public class PembelianNew extends javax.swing.JFrame {
                 No1 = "";
             }
 
-            txNoFaktur.setText("TB"+No1 + no);
+            txNoFaktur.setText("TB" + No1 + no);
         } else {
             txNoFaktur.setText("TB000001");
         }
@@ -176,7 +176,7 @@ public class PembelianNew extends javax.swing.JFrame {
             st = con.createStatement();
             st.executeUpdate(sql);
         } else {
-            String sql = "UPDATE `barang` SET `stock`=stock + " + jumlah + ", tgl_beli = '"+tgl+"' WHERE kd_barang='" + kd_barang + "'";
+            String sql = "UPDATE `barang` SET `stock`=stock + " + jumlah + ", tgl_beli = '" + tgl + "' WHERE kd_barang='" + kd_barang + "'";
             st = con.createStatement();
             st.executeUpdate(sql);
         }
@@ -184,7 +184,7 @@ public class PembelianNew extends javax.swing.JFrame {
 
     private void showTransaksi() {
         try {
-            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG","STOCK", "HARGA BELI", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
+            Object[] rows = {"NO FAKTUR", " TANGGAL", "KODE CUSTOMER", "NAMA CUSTOMER", "KODE BARANG", "NAMA BARANG", "STOCK", "HARGA BELI", "JUMLAH BELI", "JUMLAH BAYAR", "SISA STOK"};
             dtm = new DefaultTableModel(null, rows);
             tabelTransaksi.setModel(dtm);
             tabelTransaksi.setBorder(null);
@@ -698,7 +698,18 @@ public class PembelianNew extends javax.swing.JFrame {
 
     private void txJumlahBeliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txJumlahBeliKeyReleased
         // TODO add your handling code here:
-        
+        int n1;
+        int n2;
+        int n3;
+        int proses;
+        int prosess;
+        n1 = Integer.valueOf(txJumlahBeli.getText());
+        n2 = Integer.valueOf(txStock.getText());
+        n3 = Integer.valueOf(txHarga.getText());
+        proses = n2 + n1;
+        prosess = n3 * n1;
+        txSisaStock.setText("" + proses);
+        txJumlahBayar.setText("" + prosess);
     }//GEN-LAST:event_txJumlahBeliKeyReleased
 
     private void txJumlahBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBayarActionPerformed
@@ -777,7 +788,7 @@ public class PembelianNew extends javax.swing.JFrame {
             sql = "DELETE from transaksibeli where no_fak_beli='" + noFaktur + "'";
             st = con.createStatement();
             st.execute(sql);
-            sql = "UPDATE barang set stock=stock - "+jumBeli+"  where kd_barang='"+kodeBarang+"'";
+            sql = "UPDATE barang set stock=stock - " + jumBeli + "  where kd_barang='" + kodeBarang + "'";
             st = con.createStatement();
             st.execute(sql);
             JOptionPane.showMessageDialog(null, "Data Telah Dihapus!!");
