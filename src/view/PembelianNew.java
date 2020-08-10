@@ -62,7 +62,7 @@ public class PembelianNew extends javax.swing.JFrame {
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         if (rs.next()) {
-            String kd = rs.getString("no_fak_beli").substring(0,2);
+            String kd = rs.getString("no_fak_beli").substring(2);
             int no = Integer.parseInt(kd) + 1;
             String No1 = "";
             if (no < 10) {

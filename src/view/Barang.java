@@ -50,24 +50,51 @@ public class Barang extends javax.swing.JFrame {
         }
         bersih();
         cibuak();
-        txKodeBarang.setText(String.valueOf(getKode()));
         
 
     }
 
-    private int getKode() throws SQLException {
-        sql = "select * from barang ORDER BY kd_barang DESC";
-        st = con.createStatement();
-        rs = st.executeQuery(sql);
-        int lastKode = 0;
-        int newKode = 0;
-        if(rs.next()){
-            lastKode = Integer.parseInt(rs.getString("kd_barang"));
-            newKode = lastKode+1;
-        }else{
-            newKode = 1;
+//    private int getKode() throws SQLException {
+//        sql = "select * from barang ORDER BY kd_barang DESC";
+//        st = con.createStatement();
+//        rs = st.executeQuery(sql);
+//        int lastKode = 0;
+//        int newKode = 0;
+//        if(rs.next()){
+//            lastKode = Integer.parseInt(rs.getString("kd_barang"));
+//            newKode = lastKode+1;
+//        }else{
+//            newKode = 1;
+//        }
+//        return newKode;
+//    }
+    
+    private void getKode() throws SQLException {
+        sql = "select * from barang ORDER BY kd_barang DESC LIMIT 1";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        if (rs.next()) {
+            String kd = rs.getString("kd_barang").substring(1);
+            int no = Integer.parseInt(kd) + 1;
+            String No1 = "";
+            if (no < 10) {
+                No1 = "00000";
+            } else if (no < 100) {
+                No1 = "0000";
+            } else if (no < 1000) {
+                No1 = "000";
+            } else if (no < 10000) {
+                No1 = "00";
+            } else if (no < 100000) {
+                No1 = "0";
+            } else {
+                No1 = "";
+            }
+
+            txKodeBarang.setText("B"+No1 + no);
+        } else {
+            txKodeBarang.setText("B000001");
         }
-        return newKode;
     }
 
     private void bersih() throws SQLException {
@@ -81,7 +108,7 @@ public class Barang extends javax.swing.JFrame {
         txExpired.setDate(null);
         txTglBeli.setDate(null);
         txKodeBarang.setEditable(false);
-        txKodeBarang.setText(String.valueOf(getKode()));
+        getKode();
         
     }
 
