@@ -698,28 +698,7 @@ public class PembelianNew extends javax.swing.JFrame {
 
     private void txJumlahBeliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txJumlahBeliKeyReleased
         // TODO add your handling code here:
-        int n1;
-        int n2;
-        int n3;
-        int proses;
-        int prosess;
-        n1 = Integer.valueOf(txJumlahBeli.getText());
-        n2 = Integer.valueOf(txStock.getText());
-        n3 = Integer.valueOf(txHarga.getText());
-
-        if (n2 > n1) {
-            proses = n2 + n1;
-            prosess = n3 * n1;
-            txSisaStock.setText("" + proses);
-            txJumlahBayar.setText("" + prosess);
-        } else {
-            txJumlahBeli.setText(txStock.getText());
-            n1 = Integer.valueOf(txJumlahBeli.getText());
-            proses = n2 + n1;
-            prosess = n3 * n1;
-            txSisaStock.setText("" + proses);
-            txJumlahBayar.setText("" + prosess);
-        }
+        
     }//GEN-LAST:event_txJumlahBeliKeyReleased
 
     private void txJumlahBayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txJumlahBayarActionPerformed
